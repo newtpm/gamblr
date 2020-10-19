@@ -1,0 +1,12 @@
+fig:nice-fig
+tab:nice-tab
+preface
+about-the-author
+gambling-and-morality
+intro
+literature
+methods
+applications
+example-one
+example-two
+final-words
