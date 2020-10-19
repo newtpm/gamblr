@@ -9,7 +9,7 @@ documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-description: "Gambling Sims"
+description: "Gambling Simulations"
 ---
 
 ```{r eval=FALSE, echo=FALSE}
