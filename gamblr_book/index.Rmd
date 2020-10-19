@@ -1,0 +1,39 @@
+--- 
+title: "Something"
+subtitle: "Understanding Gambling Probabilities Through Simulations in R"
+author: "Paul Newton"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+#css: style.css
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: "Gambling Sims"
+---
+
+```{r eval=FALSE, echo=FALSE}
+install.packages("bookdown")
+
+```
+
+# Preface
+
+> In gambling the many must lose in order that the few may win.
+  **George Bernard Shaw**
+*(1856-1950; Irish playwright
+and co-founder of the London School of Economics)*
+
+I was watching TV one day when a Virginia Lottery advertisement for their new game Keno was shown. This got me to wondering how "fair" (or perhaps "rigged" the game was so I dedcided to find out by simulating a single Keno game, many times. The results were surprising and I decided I would expand it to beyond Keno. 
+
+# About the Author
+
+I am not a gambler, I chose to write this book solely as an intellectual curiosity. My day job, as founder of Barque Labs, is helping businesses improve their decision making capabilities and performance by providing a combination of analytics and domain expertise. 
+
+I live in Geneva, Switzerland and work with (mostly) US-based clients.  
+
+
+# Gambling and Morality 
+
+I have no problem with people gambling and this book focuses purely on probabilities and expected payouts. While gambling is not for me, if people enjoy the activity, then they are welcome to it as far as I am concerned.  
+

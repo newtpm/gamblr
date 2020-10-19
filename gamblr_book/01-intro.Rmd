@@ -1,0 +1,24 @@
+# Introduction {#intro}
+
+We all know that there is a 50% chance of a fair coin-flip coming up *Heads*. If you were offered a \$2 payout for correctly guessing Heads or Tails on a \$1 bet, you could intuitively deduce that a single bet would result in the binary outcome of you having either gained or lost \$1. Further, you could mentally extrapolate to see that the more often this bet is made, the more likely you are to end up at breakeven. Nothing to clever here, if we didn't encounter this is a statistics class, we certainly learned it over years of experience. 
+
+Now, what if for that \$1 bet the payout was \$5 for getting it correct? It's easy to mentally determine that we would want to play this game as often as possible. But what if the payout was only \$1.90? This is certainly a lot less attractive a bet and most people would elect not to play. However, this [house edge](https://knowyourodds.net.au/house-edge/#:~:text=The%20House%20Edge%20is%20a,loss%20of%20what%20you%20bet) of 10% is on the low end of what most games offer.  
+
+What makes the game more appealing would be the possibility of a large payout. Let's change the payout to be \$1.90 for a correct result, but if you are correct 10 times in a row, there is a further $750 payout. Now it is not so clear whether this bet should be accepted, and requires some probability calculations to determine whether it is a good or bad bet. Nevertheless, \$750 sounds like a large amount and it is this possibility of a large payout that encourages people to accept the bet. Whether this improved incentive makes it a worthy bet will be shown later.
+
+
+```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center'}
+par(mar = c(4, 4, .1, .1))
+plot(pressure, type = 'b', pch = 19)
+```
+
+Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab).
+
+```{r nice-tab, tidy=FALSE}
+knitr::kable(
+  head(iris, 20), caption = 'Here is a nice table!',
+  booktabs = TRUE
+)
+```
+
+You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015].
