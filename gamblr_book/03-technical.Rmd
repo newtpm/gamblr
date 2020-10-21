@@ -1,0 +1,39 @@
+# Slightly Technical Backdrop {-}
+
+# Monte Carlo Simulations
+
+From [Investopedia](https://www.investopedia.com/terms/m/montecarlosimulation.asp) *"Monte Carlo (MC) simulations are used to model the probability of different outcomes in a process that cannot easily be predicted due to the intervention of random variables."*
+
+Many event outcomes follow a deterministic pattern. Go back to our coin-flipping and we can determine that flipping a fair coin 1,000 times would give us *approximately* 500 Heads. It is commonly known that the probability of heads (0.5) multiplied by the number of flips (1000) provides the expected number of Heads - plus a random variation so the number is unlikely to be exactly 500 Heads so figuring this out is not difficult. 
+
+Nevertheless, we could also build a model for coin flipping and count the number of Heads after 1,000 flips. Then run it thousands of times to get an approximation of the expected count of Heads. While not particularly valuable in this case, imagine we wanted to know the probability of getting more than 500 Heads if 70 of the first 100 flips were Heads. Again, this could be derived from adapting our equation above, but the simulation method starts to become more useful as we could simply filter our simulations where there are 70 Heads in the first 100 flips then find the proportion of times that we end up with more than 500 Heads.
+
+**Note:** A coin-flip is memory-less, meaning the first 100 flips have no bearing on the remaining 900 flips. Consequently, a more efficient simulation would be to run each game with 900 flips, and count the times that more than 430 Heads (500 - 70) appear.
+
+As the game we are playing gets progressively more complicated, direct calculation of probabilities via statistical formulas becomes increasingly difficult to everyone but highly-trained statisticians. So we rely on the results that a simulation provides - with the caveat that these are approximations that become increasingly reliable as the number of run simulations increases.  
+
+
+## Building MC Simulations
+
+We only need to scratch the surface on Monte Carlo simulations in this book, but a broader introduction can be found on [Wikipedia](https://en.wikipedia.org/wiki/Monte_Carlo_method). In the *Overview* section, there are four common stages to an MC simulation:
+
+1. **Define a Domain of Possible Inputs:** The parameters of the game like possible numbers and payout calculations 
+2. **Generate Inputs Randomly from a Probability Distribution over the Domain:** Random game outcomes when played.
+3. **Perform a Deterministic Computation on the Inputs:** Calculate the payouts and other game results for a single game.
+4. **Aggregate the Results:** Aggregate across the hundreds of thousands (or millions) of simulations run.
+
+
+In order to rI use the statistical programming language [R](https://www.r-project.org/) to simulate enough games of Keno, that we get a reasonably accurate insight of the probability of various outcomes. A knowledge or R is not necessary to understand this article, although the code is readable enough that anyone will be able to get the gist. For those who are interested in the related R code, press *Show All Code* in the top right of this document.
+
+## Our R Envronment
+
+```{r eval=FALSE}
+library(tidyverse)
+library(readxl)
+
+sims = 1e3
+```
+
+
+
+We describe our methods in this chapter.

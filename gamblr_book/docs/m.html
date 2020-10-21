@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>The gamblr Package</title>
+  <title>M | The gamblr Package</title>
   <meta name="description" content="Gambling Simulations" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="The gamblr Package" />
+  <meta property="og:title" content="M | The gamblr Package" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="The gamblr Package" />
+  <meta name="twitter:title" content="M | The gamblr Package" />
   
   <meta name="twitter:description" content="Gambling Simulations" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="about-the-author.html"/>
+<link rel="prev" href="intro.html"/>
+<link rel="next" href="keno.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -137,11 +137,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
 <li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#a-work-in-progress"><i class="fa fa-check"></i><b>0.1</b> A Work in Progress</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Gambling &amp; Probabilities</a></li>
-<li class="chapter" data-level="" data-path="slightly-technical-backdrop.html"><a href="slightly-technical-backdrop.html"><i class="fa fa-check"></i>Slightly Technical Backdrop</a><ul>
-<li class="chapter" data-level="1.1" data-path="slightly-technical-backdrop.html"><a href="slightly-technical-backdrop.html#building-mc-simulations"><i class="fa fa-check"></i><b>1.1</b> Building MC Simulations</a></li>
-<li class="chapter" data-level="1.2" data-path="slightly-technical-backdrop.html"><a href="slightly-technical-backdrop.html#our-r-envronment"><i class="fa fa-check"></i><b>1.2</b> Our R Envronment</a></li>
+<li class="chapter" data-level="" data-path="m.html"><a href="m.html"><i class="fa fa-check"></i>M</a><ul>
+<li class="chapter" data-level="1.1" data-path="m.html"><a href="m.html#monte-carlo-simulations"><i class="fa fa-check"></i><b>1.1</b> Monte Carlo Simulations</a></li>
+<li class="chapter" data-level="1.2" data-path="m.html"><a href="m.html#building-mc-simulations"><i class="fa fa-check"></i><b>1.2</b> Building MC Simulations</a></li>
+<li class="chapter" data-level="1.3" data-path="m.html"><a href="m.html#our-r-envronment"><i class="fa fa-check"></i><b>1.3</b> Our R Envronment</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="keno.html"><a href="keno.html"><i class="fa fa-check"></i><b>2</b> Keno</a><ul>
 <li class="chapter" data-level="2.0.1" data-path="keno.html"><a href="keno.html#simulating-a-game-in-r"><i class="fa fa-check"></i><b>2.0.1</b> Simulating a Game in R</a></li>
@@ -175,25 +175,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">The <em>gamblr</em> Package</h1>
-<h2 class="subtitle"><em>Understanding Gambling Probabilities Through Simulations in R</em></h2>
-<p class="author"><em>Paul Newton</em></p>
-<p class="date"><em>2020-10-21</em></p>
+<div id="m" class="section level1 unnumbered">
+<h1>M</h1>
+<div id="monte-carlo-simulations" class="section level2">
+<h2><span class="header-section-number">1.1</span> Monte Carlo Simulations</h2>
+<p>From <a href="https://www.investopedia.com/terms/m/montecarlosimulation.asp">Investopedia</a> <em>“Monte Carlo (MC) simulations are used to model the probability of different outcomes in a process that cannot easily be predicted due to the intervention of random variables.”</em></p>
+<p>Many event outcomes follow a deterministic pattern. Go back to our coin-flipping and we can determine that flipping a fair coin 1,000 times would give us <em>approximately</em> 500 Heads. It is commonly known that the probability of heads (0.5) multiplied by the number of flips (1000) provides the expected number of Heads - plus a random variation so the number is unlikely to be exactly 500 Heads so figuring this out is not difficult.</p>
+<p>Nevertheless, we could also build a model for coin flipping and count the number of Heads after 1,000 flips. Then run it thousands of times to get an approximation of the expected count of Heads. While not particularly valuable in this case, imagine we wanted to know the probability of getting more than 500 Heads if 70 of the first 100 flips were Heads. Again, this could be derived from adapting our equation above, but the simulation method starts to become more useful as we could simply filter our simulations where there are 70 Heads in the first 100 flips then find the proportion of times that we end up with more than 500 Heads.</p>
+<p><strong>Note:</strong> A coin-flip is memory-less, meaning the first 100 flips have no bearing on the remaining 900 flips. Consequently, a more efficient simulation would be to run each game with 900 flips, and count the times that more than 430 Heads (500 - 70) appear.</p>
+<p>As the game we are playing gets progressively more complicated, direct calculation of probabilities via statistical formulas becomes increasingly difficult to everyone but highly-trained statisticians. So we rely on the results that a simulation provides - with the caveat that these are approximations that become increasingly reliable as the number of run simulations increases.</p>
 </div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<blockquote>
-<p>In gambling the many must lose in order that the few may win.</p>
-<p>— <strong>George Bernard Shaw</strong> <em>(Irish Playwright)</em></p>
-</blockquote>
-<p>I was watching TV one day when a Virginia Lottery advertisement for their new game Keno was shown. This got me to wondering how “fair” (or perhaps “rigged”) the game was so I decided to find out by simulating a single Keno game, many times. The results were surprising and I decided I would expand it to beyond Keno.</p>
-<p>This book focuses purely on probabilities and expected payouts and does not attempt a social commentary on gambling. While gambling is not for me personally, if people enjoy the activity, then they are welcome to it as far as I am concerned. That said, perhaps after reading this book, when the true probabilities are better understood, some of the excitement may have evaporated.</p>
-<div id="a-work-in-progress" class="section level2">
-<h2><span class="header-section-number">0.1</span> A Work in Progress</h2>
-<p>Amongst the many wonderful things about online books is that they can be a perpetual work-in-progress. Consequently, I have published this book in an incomplete form, but one that contains stand-alone chapters that are (hopefully) an insightful read in and of themselves.</p>
-Any ideas or corrections can be submitted as a github issues <link> or sent to
-<address>
+<div id="building-mc-simulations" class="section level2">
+<h2><span class="header-section-number">1.2</span> Building MC Simulations</h2>
+<p>We only need to scratch the surface on Monte Carlo simulations in this book, but a broader introduction can be found on <a href="https://en.wikipedia.org/wiki/Monte_Carlo_method">Wikipedia</a>. In the <em>Overview</em> section, there are four common stages to an MC simulation:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Define a Domain of Possible Inputs:</strong> The parameters of the game like possible numbers and payout calculations</li>
+<li><strong>Generate Inputs Randomly from a Probability Distribution over the Domain:</strong> Random game outcomes when played.</li>
+<li><strong>Perform a Deterministic Computation on the Inputs:</strong> Calculate the payouts and other game results for a single game.</li>
+<li><strong>Aggregate the Results:</strong> Aggregate across the hundreds of thousands (or millions) of simulations run.</li>
+</ol>
+<p>In order to rI use the statistical programming language <a href="https://www.r-project.org/">R</a> to simulate enough games of Keno, that we get a reasonably accurate insight of the probability of various outcomes. A knowledge or R is not necessary to understand this article, although the code is readable enough that anyone will be able to get the gist. For those who are interested in the related R code, press <em>Show All Code</em> in the top right of this document.</p>
+</div>
+<div id="our-r-envronment" class="section level2">
+<h2><span class="header-section-number">1.3</span> Our R Envronment</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="m.html#cb3-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb3-2"><a href="m.html#cb3-2"></a><span class="kw">library</span>(readxl)</span>
+<span id="cb3-3"><a href="m.html#cb3-3"></a></span>
+<span id="cb3-4"><a href="m.html#cb3-4"></a>sims =<span class="st"> </span><span class="fl">1e3</span></span></code></pre></div>
+<p>We describe our methods in this chapter.</p>
+
 </div>
 </div>
             </section>
@@ -201,8 +211,8 @@ Any ideas or corrections can be submitted as a github issues <link> or sent to
           </div>
         </div>
       </div>
-
-<a href="about-the-author.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="keno.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

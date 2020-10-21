@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Monte Carlo Simulations | The gamblr Package</title>
+  <meta name="description" content="Gambling Simulations" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Monte Carlo Simulations | The gamblr Package" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Gambling Simulations" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Monte Carlo Simulations | The gamblr Package" />
+  
+  <meta name="twitter:description" content="Gambling Simulations" />
+  
+
+<meta name="author" content="Paul Newton" />
+
+
+<meta name="date" content="2020-10-21" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="slightly-technical-backdrop.html"/>
+<link rel="next" href="keno.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#a-work-in-progress"><i class="fa fa-check"></i><b>0.1</b> A Work in Progress</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Gambling &amp; Probabilities</a></li>
+<li class="chapter" data-level="" data-path="slightly-technical-backdrop.html"><a href="slightly-technical-backdrop.html"><i class="fa fa-check"></i>Slightly Technical Backdrop</a></li>
+<li class="chapter" data-level="2" data-path="monte-carlo-simulations.html"><a href="monte-carlo-simulations.html"><i class="fa fa-check"></i><b>2</b> Monte Carlo Simulations</a><ul>
+<li class="chapter" data-level="2.1" data-path="monte-carlo-simulations.html"><a href="monte-carlo-simulations.html#building-mc-simulations"><i class="fa fa-check"></i><b>2.1</b> Building MC Simulations</a></li>
+<li class="chapter" data-level="2.2" data-path="monte-carlo-simulations.html"><a href="monte-carlo-simulations.html#our-r-envronment"><i class="fa fa-check"></i><b>2.2</b> Our R Envronment</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="keno.html"><a href="keno.html"><i class="fa fa-check"></i><b>3</b> Keno</a><ul>
+<li class="chapter" data-level="3.0.1" data-path="keno.html"><a href="keno.html#simulating-a-game-in-r"><i class="fa fa-check"></i><b>3.0.1</b> Simulating a Game in R</a></li>
+<li class="chapter" data-level="3.0.2" data-path="keno.html"><a href="keno.html#fair-bets-expected-values"><i class="fa fa-check"></i><b>3.0.2</b> Fair Bets &amp; Expected Values</a></li>
+<li class="chapter" data-level="3.0.3" data-path="keno.html"><a href="keno.html#the-play_keno-function"><i class="fa fa-check"></i><b>3.0.3</b> The <code>play_keno</code> Function</a></li>
+<li class="chapter" data-level="3.1" data-path="keno.html"><a href="keno.html#lets-play-100000-games-of-keno"><i class="fa fa-check"></i><b>3.1</b> Let’s Play 100,000 Games of Keno</a></li>
+<li class="chapter" data-level="3.2" data-path="keno.html"><a href="keno.html#net-position-after-30-games"><i class="fa fa-check"></i><b>3.2</b> Net Position After 30 Games</a></li>
+<li class="chapter" data-level="3.3" data-path="keno.html"><a href="keno.html#conclusion"><i class="fa fa-check"></i><b>3.3</b> Conclusion</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="keno.html"><a href="keno.html#reconciling-to-original-manual-in-a-restaurant-analysis"><i class="fa fa-check"></i><b>3.3.1</b> Reconciling to Original (Manual in a Restaurant) Analysis</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>4</b> Final Words</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The <em>gamblr</em> Package</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="monte-carlo-simulations" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Monte Carlo Simulations</h1>
+<p>From <a href="https://www.investopedia.com/terms/m/montecarlosimulation.asp">Investopedia</a> <em>“Monte Carlo (MC) simulations are used to model the probability of different outcomes in a process that cannot easily be predicted due to the intervention of random variables.”</em></p>
+<p>Many event outcomes follow a deterministic pattern. Go back to our coin-flipping and we can determine that flipping a fair coin 1,000 times would give us <em>approximately</em> 500 Heads. It is commonly known that the probability of heads (0.5) multiplied by the number of flips (1000) provides the expected number of Heads - plus a random variation so the number is unlikely to be exactly 500 Heads so figuring this out is not difficult.</p>
+<p>Nevertheless, we could also build a model for coin flipping and count the number of Heads after 1,000 flips. Then run it thousands of times to get an approximation of the expected count of Heads. While not particularly valuable in this case, imagine we wanted to know the probability of getting more than 500 Heads if 70 of the first 100 flips were Heads. Again, this could be derived from adapting our equation above, but the simulation method starts to become more useful as we could simply filter our simulations where there are 70 Heads in the first 100 flips then find the proportion of times that we end up with more than 500 Heads.</p>
+<p><strong>Note:</strong> A coin-flip is memory-less, meaning the first 100 flips have no bearing on the remaining 900 flips. Consequently, a more efficient simulation would be to run each game with 900 flips, and count the times that more than 430 Heads (500 - 70) appear.</p>
+<p>As the game we are playing gets progressively more complicated, direct calculation of probabilities via statistical formulas becomes increasingly difficult to everyone but highly-trained statisticians. So we rely on the results that a simulation provides - with the caveat that these are approximations that become increasingly reliable as the number of run simulations increases.</p>
+<div id="building-mc-simulations" class="section level2">
+<h2><span class="header-section-number">2.1</span> Building MC Simulations</h2>
+<p>We only need to scratch the surface on Monte Carlo simulations in this book, but a broader introduction can be found on <a href="https://en.wikipedia.org/wiki/Monte_Carlo_method">Wikipedia</a>. In the <em>Overview</em> section, there are four common stages to an MC simulation:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Define a Domain of Possible Inputs:</strong> The parameters of the game like possible numbers and payout calculations</li>
+<li><strong>Generate Inputs Randomly from a Probability Distribution over the Domain:</strong> Random game outcomes when played.</li>
+<li><strong>Perform a Deterministic Computation on the Inputs:</strong> Calculate the payouts and other game results for a single game.</li>
+<li><strong>Aggregate the Results:</strong> Aggregate across the hundreds of thousands (or millions) of simulations run.</li>
+</ol>
+<p>In order to rI use the statistical programming language <a href="https://www.r-project.org/">R</a> to simulate enough games of Keno, that we get a reasonably accurate insight of the probability of various outcomes. A knowledge or R is not necessary to understand this article, although the code is readable enough that anyone will be able to get the gist. For those who are interested in the related R code, press <em>Show All Code</em> in the top right of this document.</p>
+</div>
+<div id="our-r-envronment" class="section level2">
+<h2><span class="header-section-number">2.2</span> Our R Envronment</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="monte-carlo-simulations.html#cb3-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb3-2"><a href="monte-carlo-simulations.html#cb3-2"></a><span class="kw">library</span>(readxl)</span>
+<span id="cb3-3"><a href="monte-carlo-simulations.html#cb3-3"></a></span>
+<span id="cb3-4"><a href="monte-carlo-simulations.html#cb3-4"></a>sims =<span class="st"> </span><span class="fl">1e3</span></span></code></pre></div>
+<p>We describe our methods in this chapter.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="slightly-technical-backdrop.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="keno.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["gamblr_book.pdf", "gamblr_book.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

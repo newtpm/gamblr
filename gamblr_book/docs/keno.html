@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Keno | The gamblr Package</title>
+  <meta name="description" content="Gambling Simulations" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Keno | The gamblr Package" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Gambling Simulations" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Keno | The gamblr Package" />
+  
+  <meta name="twitter:description" content="Gambling Simulations" />
+  
+
+<meta name="author" content="Paul Newton" />
+
+
+<meta name="date" content="2020-10-20" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="monte-carlo-simulations.html"/>
+<link rel="next" href="final-words.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#about-the-author"><i class="fa fa-check"></i><b>1.1</b> About the Author</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#gambling-and-morality"><i class="fa fa-check"></i><b>1.2</b> Gambling and Morality</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#a-work-in-progress"><i class="fa fa-check"></i><b>1.3</b> A Work in Progress</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Gambling &amp; Probabilities</a></li>
+<li class="chapter" data-level="3" data-path="monte-carlo-simulations.html"><a href="monte-carlo-simulations.html"><i class="fa fa-check"></i><b>3</b> Monte Carlo Simulations</a><ul>
+<li class="chapter" data-level="3.1" data-path="monte-carlo-simulations.html"><a href="monte-carlo-simulations.html#building-mc-simulations"><i class="fa fa-check"></i><b>3.1</b> Building MC Simulations</a></li>
+<li class="chapter" data-level="3.2" data-path="monte-carlo-simulations.html"><a href="monte-carlo-simulations.html#our-r-envronment"><i class="fa fa-check"></i><b>3.2</b> Our R Envronment</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="keno.html"><a href="keno.html"><i class="fa fa-check"></i><b>4</b> Keno</a><ul>
+<li class="chapter" data-level="4.0.1" data-path="keno.html"><a href="keno.html#simulating-a-game-in-r"><i class="fa fa-check"></i><b>4.0.1</b> Simulating a Game in R</a></li>
+<li class="chapter" data-level="4.0.2" data-path="keno.html"><a href="keno.html#fair-bets-expected-values"><i class="fa fa-check"></i><b>4.0.2</b> Fair Bets &amp; Expected Values</a></li>
+<li class="chapter" data-level="4.0.3" data-path="keno.html"><a href="keno.html#the-play_keno-function"><i class="fa fa-check"></i><b>4.0.3</b> The <code>play_keno</code> Function</a></li>
+<li class="chapter" data-level="4.1" data-path="keno.html"><a href="keno.html#lets-play-100000-games-of-keno"><i class="fa fa-check"></i><b>4.1</b> Let’s Play 100,000 Games of Keno</a></li>
+<li class="chapter" data-level="4.2" data-path="keno.html"><a href="keno.html#net-position-after-30-games"><i class="fa fa-check"></i><b>4.2</b> Net Position After 30 Games</a></li>
+<li class="chapter" data-level="4.3" data-path="keno.html"><a href="keno.html#conclusion"><i class="fa fa-check"></i><b>4.3</b> Conclusion</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="keno.html"><a href="keno.html#reconciling-to-original-manual-in-a-restaurant-analysis"><i class="fa fa-check"></i><b>4.3.1</b> Reconciling to Original (Manual in a Restaurant) Analysis</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>5</b> Final Words</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The <em>gamblr</em> Package</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="keno" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Keno</h1>
+<p>Our Keno simulation is modeled on the game provided by the Virginia State Lottery. <a href="https://www.valottery.com/data/draw-games/keno">Keno</a>.</p>
+<p>In the Virginia version of the game, players pick from 1 to 10 numbers or “spots” (from the population range of 1 to 80). The Lottery then randomly picks 20 numbers from the same 1 to 80 range and players win predetermined amounts based on the number of matches they have. Virginia Lottery have a good explanation in a <a href="https://www.youtube.com/watch?v=LNPsMmxjQDc">2-minute marketing video</a>.</p>
+<div id="simulating-a-game-in-r" class="section level3">
+<h3><span class="header-section-number">4.0.1</span> Simulating a Game in R</h3>
+<p>Assuming the game is unbiased, we can simulate a single game quite easily. Let’s play the 10-Spot game, one-time, waging $1. Below we pick 10 numbers from the population range in <code>pick</code> and then simulate a single game’s drawing of 20 numbers in <code>draw</code>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="keno.html#cb4-1"></a><span class="kw">library</span>(tidyverse) <span class="co"># load the required R packages</span></span>
+<span id="cb4-2"><a href="keno.html#cb4-2"></a><span class="kw">library</span>(readxl)</span>
+<span id="cb4-3"><a href="keno.html#cb4-3"></a></span>
+<span id="cb4-4"><a href="keno.html#cb4-4"></a>spots &lt;-<span class="st"> </span><span class="dv">10</span> <span class="co"># the number of spots in our simulated game</span></span>
+<span id="cb4-5"><a href="keno.html#cb4-5"></a><span class="kw">set.seed</span>(<span class="dv">11</span>) <span class="co"># so that random outcomes can be reproduced</span></span>
+<span id="cb4-6"><a href="keno.html#cb4-6"></a></span>
+<span id="cb4-7"><a href="keno.html#cb4-7"></a>pick &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">80</span>, spots)</span>
+<span id="cb4-8"><a href="keno.html#cb4-8"></a><span class="kw">sort</span>(pick) <span class="co"># sorted for viewing convenience</span></span></code></pre></div>
+<pre><code>##  [1] 12 16 25 34 35 37 39 56 60 62</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="keno.html#cb6-1"></a>draw &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">80</span>, <span class="dv">20</span>)</span>
+<span id="cb6-2"><a href="keno.html#cb6-2"></a><span class="kw">sort</span>(draw)</span></code></pre></div>
+<pre><code>##  [1]  3  6  7  8 10 11 12 25 34 39 40 45 47 49 52 60 67 68 77 80</code></pre>
+<p>Apparently, we have five matches in this particular game which sounds pretty promising as half of our 10 picks were selected. Below we fetch them with a formula.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="keno.html#cb8-1"></a><span class="kw">sort</span>(draw[draw <span class="op">%in%</span><span class="st"> </span>pick]) <span class="co"># subset from draw when the number is found in pick</span></span></code></pre></div>
+<pre><code>## [1] 12 25 34 39 60</code></pre>
+<p>Now we need to lookup the assocated Prize for our five matches from a 10-Spot game as per the published table in the Odds table of Virginia Lottery’s <a href="https://www.valottery.com/data/draw-games/keno">Keno page</a>.</p>
+<p><img src="www/keno%20odds%20pic.PNG" /></p>
+<p>Which turns out to be a Prize of $3, or $2 net of our ticket cost. We have won 2x our wager which sounds like a nice return but note that the odds of such an outcome in the table above is 19 (read as 1 in 19) or a (5.26%) probability.</p>
+</div>
+<div id="fair-bets-expected-values" class="section level3">
+<h3><span class="header-section-number">4.0.2</span> Fair Bets &amp; Expected Values</h3>
+<p>A <em>fair bet</em> is one where your net expected value is the same as your cost. So if I were to bet $1 that a fair coin flip would be heads and it pays out $2, this would be a <em>fair bet</em> because my <em>expected value</em> (i.e. payout * probability or [$2 * 0.5] ) equals my wager of $1. You usually make <em>fair bets</em> with friends and family and the wagers are fully distributed to the players.</p>
+<p>One couldn’t expect formal gambling games to be <em>fair</em> as the establishments need to be profitable, but how do you determine the level to which the game is biased against you? We use <em>expected value</em> (EV) as a means to determine this.</p>
+</div>
+<div id="the-play_keno-function" class="section level3">
+<h3><span class="header-section-number">4.0.3</span> The <code>play_keno</code> Function</h3>
+<p>Now that the basics of the game are understood, let’s wrap that single game into a function for reuse in our simulation. Note that the manual prize lookup has been automated via a manually created <code>prize_table</code>. The output of the function is a small table with a single row and the games parameters.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="keno.html#cb10-1"></a>play_keno &lt;-<span class="st"> </span><span class="cf">function</span>(spots, <span class="dt">wager =</span> <span class="dv">1</span>) {</span>
+<span id="cb10-2"><a href="keno.html#cb10-2"></a>  </span>
+<span id="cb10-3"><a href="keno.html#cb10-3"></a>  pick &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">80</span>, spots) <span class="co"># same as above</span></span>
+<span id="cb10-4"><a href="keno.html#cb10-4"></a>  draw &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">80</span>, <span class="dv">20</span>) <span class="co"># same as above</span></span>
+<span id="cb10-5"><a href="keno.html#cb10-5"></a></span>
+<span id="cb10-6"><a href="keno.html#cb10-6"></a>  </span>
+<span id="cb10-7"><a href="keno.html#cb10-7"></a>  matches &lt;-<span class="st"> </span><span class="kw">sum</span>(pick <span class="op">%in%</span><span class="st"> </span>draw) <span class="co"># we don&#39;t care whichs number match, just the total</span></span>
+<span id="cb10-8"><a href="keno.html#cb10-8"></a>  </span>
+<span id="cb10-9"><a href="keno.html#cb10-9"></a>  prize &lt;-<span class="st"> </span>prize_table <span class="op">%&gt;%</span></span>
+<span id="cb10-10"><a href="keno.html#cb10-10"></a><span class="st">    </span><span class="kw">select</span>(Match, <span class="kw">contains</span>(<span class="kw">as.character</span>(spots))) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># isolate column for the game we are playing</span></span>
+<span id="cb10-11"><a href="keno.html#cb10-11"></a><span class="st">    </span><span class="kw">filter</span>(Match <span class="op">==</span><span class="st"> </span>matches) <span class="op">%&gt;%</span><span class="st"> </span><span class="co">#isolate the matches we made</span></span>
+<span id="cb10-12"><a href="keno.html#cb10-12"></a><span class="st">    </span><span class="kw">pull</span>(<span class="dv">2</span>) <span class="co"># isolate just the numeric from the dataframe</span></span>
+<span id="cb10-13"><a href="keno.html#cb10-13"></a>  </span>
+<span id="cb10-14"><a href="keno.html#cb10-14"></a>  tmp &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">Spots =</span> spots,</span>
+<span id="cb10-15"><a href="keno.html#cb10-15"></a>                <span class="dt">Wager =</span> wager,</span>
+<span id="cb10-16"><a href="keno.html#cb10-16"></a>                <span class="dt">Matches =</span> matches,</span>
+<span id="cb10-17"><a href="keno.html#cb10-17"></a>                <span class="dt">Prize =</span> prize <span class="op">*</span><span class="st"> </span>wager ) <span class="op">%&gt;%</span></span>
+<span id="cb10-18"><a href="keno.html#cb10-18"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">Net =</span> Prize <span class="op">-</span><span class="st"> </span>Wager,</span>
+<span id="cb10-19"><a href="keno.html#cb10-19"></a>           <span class="dt">Color =</span> <span class="kw">ifelse</span>(Prize <span class="op">==</span><span class="st"> </span><span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>)) <span class="co"># color mapping for our charts</span></span>
+<span id="cb10-20"><a href="keno.html#cb10-20"></a>  </span>
+<span id="cb10-21"><a href="keno.html#cb10-21"></a>  <span class="kw">return</span>(tmp)</span>
+<span id="cb10-22"><a href="keno.html#cb10-22"></a>}</span>
+<span id="cb10-23"><a href="keno.html#cb10-23"></a></span>
+<span id="cb10-24"><a href="keno.html#cb10-24"></a>prize_table &lt;-<span class="st"> </span><span class="kw">read_xlsx</span>(<span class="st">&quot;./input/keno prizes.xlsx&quot;</span>) <span class="co"># load our prize table</span></span>
+<span id="cb10-25"><a href="keno.html#cb10-25"></a><span class="kw">set.seed</span>(<span class="dv">11</span>) <span class="co"># to creat the same random outputs as above</span></span>
+<span id="cb10-26"><a href="keno.html#cb10-26"></a><span class="kw">play_keno</span>(<span class="dv">10</span>) <span class="co"># play a 10-Spot game</span></span></code></pre></div>
+<pre><code>## # A tibble: 1 x 6
+##   Spots Wager Matches Prize   Net Color
+##   &lt;dbl&gt; &lt;dbl&gt;   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1    10     1       5     3     2     2</code></pre>
+<p>The official game allows for wagers of $1 to $10 which multiplies the prize by the wagered amount. So if we had made a $5 wager above, our prize would have been $15 ($3 * 5). For simplicity and consistency, we are only going to consider wagers of $1 in our simulations as the probabilities hold, given the linear relationship of the prize to the wager.</p>
+</div>
+<div id="lets-play-100000-games-of-keno" class="section level2">
+<h2><span class="header-section-number">4.1</span> Let’s Play 100,000 Games of Keno</h2>
+<p>Next we set our number of simulations to 100,00 and <code>play_keno()</code> for each sim. 100K sims are enough to reduce any random effect to a minimal level and we should feel confident in the <strong>approximate</strong> probabilities we derive. Our total simulation summary is shown below…</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="keno.html#cb12-1"></a>sims &lt;-<span class="st"> </span><span class="fl">1e3</span> <span class="co"># 100K simulations which takes some time, so only play with 1000 sims until sure. </span></span>
+<span id="cb12-2"><a href="keno.html#cb12-2"></a></span>
+<span id="cb12-3"><a href="keno.html#cb12-3"></a></span>
+<span id="cb12-4"><a href="keno.html#cb12-4"></a>plays &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span>sims <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># for each sim</span></span>
+<span id="cb12-5"><a href="keno.html#cb12-5"></a><span class="st">  </span><span class="kw">map_dfr</span>(<span class="cf">function</span>(x) <span class="kw">play_keno</span>(spots)) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># play a 10-Spot game with our function play_keno()</span></span>
+<span id="cb12-6"><a href="keno.html#cb12-6"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Sim =</span> <span class="dv">1</span><span class="op">:</span>sims, <span class="co"># sim ID&#39;s</span></span>
+<span id="cb12-7"><a href="keno.html#cb12-7"></a>         <span class="dt">Cumulative =</span> <span class="kw">cumsum</span>(Net)) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># calc cumulative sum</span></span>
+<span id="cb12-8"><a href="keno.html#cb12-8"></a><span class="st">  </span><span class="kw">relocate</span>(Sim) <span class="co"># move Sim to the first column</span></span>
+<span id="cb12-9"><a href="keno.html#cb12-9"></a></span>
+<span id="cb12-10"><a href="keno.html#cb12-10"></a>plays <span class="op">%&gt;%</span></span>
+<span id="cb12-11"><a href="keno.html#cb12-11"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Sims =</span> <span class="kw">n</span>(),</span>
+<span id="cb12-12"><a href="keno.html#cb12-12"></a>            <span class="dt">Wager =</span> <span class="kw">sum</span>(Wager),</span>
+<span id="cb12-13"><a href="keno.html#cb12-13"></a>            <span class="dt">Prize =</span> <span class="kw">sum</span>(Prize),</span>
+<span id="cb12-14"><a href="keno.html#cb12-14"></a>            <span class="dt">Net =</span> <span class="kw">sum</span>(Net), <span class="dt">.groups =</span> <span class="st">&quot;drop&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb12-15"><a href="keno.html#cb12-15"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">Prob =</span> <span class="kw">round</span>(Sims <span class="op">/</span><span class="st"> </span>sims, <span class="dv">3</span>),</span>
+<span id="cb12-16"><a href="keno.html#cb12-16"></a>            <span class="dt">EV =</span> Prize <span class="op">/</span><span class="st"> </span>Sims <span class="op">*</span><span class="st"> </span>Prob)</span></code></pre></div>
+<pre><code>## # A tibble: 1 x 6
+##    Sims Wager Prize   Net  Prob    EV
+##   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1  1000  1000   609  -391     1 0.609</code></pre>
+<p>For 1K simulations, we wagered $1K and lost $0.39K of it. Put another way, our expected value (EV) for the 10-Spot game is $0.61</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="keno.html#cb14-1"></a>summary &lt;-<span class="st"> </span>plays <span class="op">%&gt;%</span></span>
+<span id="cb14-2"><a href="keno.html#cb14-2"></a><span class="st">  </span><span class="kw">group_by</span>(Matches) <span class="op">%&gt;%</span></span>
+<span id="cb14-3"><a href="keno.html#cb14-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Sims =</span> <span class="kw">n</span>(),</span>
+<span id="cb14-4"><a href="keno.html#cb14-4"></a>            <span class="dt">Wager =</span> <span class="kw">sum</span>(Wager),</span>
+<span id="cb14-5"><a href="keno.html#cb14-5"></a>            <span class="dt">Prize =</span> <span class="kw">sum</span>(Prize),</span>
+<span id="cb14-6"><a href="keno.html#cb14-6"></a>            <span class="dt">Net =</span> <span class="kw">sum</span>(Net), <span class="dt">.groups =</span> <span class="st">&quot;drop&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb14-7"><a href="keno.html#cb14-7"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Prob =</span> <span class="kw">round</span>(Sims <span class="op">/</span><span class="st"> </span>sims, <span class="dv">3</span>),</span>
+<span id="cb14-8"><a href="keno.html#cb14-8"></a>         <span class="dt">EV =</span> Prize <span class="op">/</span><span class="st"> </span>Sims <span class="op">*</span><span class="st"> </span>Prob,</span>
+<span id="cb14-9"><a href="keno.html#cb14-9"></a>         <span class="dt">Odds =</span> <span class="kw">round</span>(<span class="dv">1</span><span class="op">/</span>EV, <span class="dv">0</span>))</span>
+<span id="cb14-10"><a href="keno.html#cb14-10"></a></span>
+<span id="cb14-11"><a href="keno.html#cb14-11"></a>summary <span class="co"># results of our sims</span></span></code></pre></div>
+<pre><code>## # A tibble: 8 x 8
+##   Matches  Sims Wager Prize   Net  Prob    EV  Odds
+##     &lt;int&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1       0    46    46    92    46 0.046 0.092    11
+## 2       1   173   173     0  -173 0.173 0       Inf
+## 3       2   281   281     0  -281 0.281 0       Inf
+## 4       3   267   267     0  -267 0.267 0       Inf
+## 5       4   160   160   160     0 0.16  0.16      6
+## 6       5    59    59   177   118 0.059 0.177     6
+## 7       6    13    13   130   117 0.013 0.13      8
+## 8       7     1     1    50    49 0.001 0.05     20</code></pre>
+<p>Despite the best match level’s expected value being only 17.7 (above), our expected value for each game is 0 cents. This dynamic is due to the fact that players do not need to specify a match level beforehand. Thus, they participate in the payout at any winning level and their combined EV is the sum of all EV’s.</p>
+<p><em>Note:</em> The simulated probability of getting 5 matches in the 10-Spot game is 5.2% - which is consistent with the stated odds (1/19) for five matches. This illustrates an value attribute of simulations - despite not knowing the formula that the Lottery used for their odds, we have been able to validate them as being acceptably accurate.</p>
+</div>
+<div id="net-position-after-30-games" class="section level2">
+<h2><span class="header-section-number">4.2</span> Net Position After 30 Games</h2>
+<p>With an EV of 0 cents. we would expect to have $0 in our pocket after wagering $30 across 30 games. But no one plays Keno for the expected value, it is the big prizes that attracts players. So let’s play 30 games, 1,000 times, and see what our ending balances are after this defined gameset.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="keno.html#cb16-1"></a>games &lt;-<span class="st"> </span><span class="dv">30</span></span>
+<span id="cb16-2"><a href="keno.html#cb16-2"></a>sims2 &lt;-<span class="st"> </span><span class="dv">1000</span></span>
+<span id="cb16-3"><a href="keno.html#cb16-3"></a></span>
+<span id="cb16-4"><a href="keno.html#cb16-4"></a>plays2 &lt;-<span class="st"> </span><span class="kw">tibble</span>()</span>
+<span id="cb16-5"><a href="keno.html#cb16-5"></a></span>
+<span id="cb16-6"><a href="keno.html#cb16-6"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>sims2) {</span>
+<span id="cb16-7"><a href="keno.html#cb16-7"></a>  </span>
+<span id="cb16-8"><a href="keno.html#cb16-8"></a>  games_batch &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">30</span> <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># for each sim</span></span>
+<span id="cb16-9"><a href="keno.html#cb16-9"></a><span class="st">    </span><span class="kw">map_dfr</span>(<span class="cf">function</span>(x) <span class="kw">play_keno</span>(spots)) <span class="op">%&gt;%</span></span>
+<span id="cb16-10"><a href="keno.html#cb16-10"></a><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">Net =</span> <span class="kw">sum</span>(Net)) <span class="op">%&gt;%</span></span>
+<span id="cb16-11"><a href="keno.html#cb16-11"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">Sim =</span> i) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># calc cumulative sum</span></span>
+<span id="cb16-12"><a href="keno.html#cb16-12"></a><span class="st">    </span><span class="kw">relocate</span>(Sim)</span>
+<span id="cb16-13"><a href="keno.html#cb16-13"></a>    </span>
+<span id="cb16-14"><a href="keno.html#cb16-14"></a>   plays2 &lt;-<span class="st"> </span>plays2 <span class="op">%&gt;%</span></span>
+<span id="cb16-15"><a href="keno.html#cb16-15"></a><span class="st">     </span><span class="kw">bind_rows</span>(games_batch) <span class="op">%&gt;%</span></span>
+<span id="cb16-16"><a href="keno.html#cb16-16"></a><span class="st">     </span><span class="kw">mutate</span>(<span class="dt">Color =</span> <span class="kw">factor</span>(<span class="kw">case_when</span>(</span>
+<span id="cb16-17"><a href="keno.html#cb16-17"></a>       Net <span class="op">&lt;=</span><span class="st"> </span><span class="dv">0</span> <span class="op">~</span><span class="st"> &quot;-$30 - $0 Loss&quot;</span>,</span>
+<span id="cb16-18"><a href="keno.html#cb16-18"></a>       Net <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>Net <span class="op">&lt;=</span><span class="st"> </span><span class="dv">30</span> <span class="op">~</span><span class="st"> &quot;$1-$30 Gain&quot;</span>,</span>
+<span id="cb16-19"><a href="keno.html#cb16-19"></a>       Net <span class="op">&gt;</span><span class="st"> </span><span class="dv">30</span> <span class="op">&amp;</span><span class="st"> </span>Net <span class="op">&lt;=</span><span class="st"> </span><span class="dv">60</span> <span class="op">~</span><span class="st"> &quot;$31-$60 Gain&quot;</span>,</span>
+<span id="cb16-20"><a href="keno.html#cb16-20"></a>       Net <span class="op">&gt;</span><span class="st"> </span><span class="dv">60</span> <span class="op">&amp;</span><span class="st"> </span>Net <span class="op">&lt;=</span><span class="st"> </span><span class="dv">90</span> <span class="op">~</span><span class="st"> &quot;$61-$90 Gain&quot;</span>,</span>
+<span id="cb16-21"><a href="keno.html#cb16-21"></a>       <span class="ot">TRUE</span> <span class="op">~</span><span class="st"> &quot;&gt;$90 Gain&quot;</span> )))</span>
+<span id="cb16-22"><a href="keno.html#cb16-22"></a>  </span>
+<span id="cb16-23"><a href="keno.html#cb16-23"></a>}</span>
+<span id="cb16-24"><a href="keno.html#cb16-24"></a></span>
+<span id="cb16-25"><a href="keno.html#cb16-25"></a><span class="kw">ggplot</span>(plays2, <span class="kw">aes</span>(Sim, Net, <span class="dt">color =</span> Color)) <span class="op">+</span></span>
+<span id="cb16-26"><a href="keno.html#cb16-26"></a><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">alpha =</span> <span class="fl">0.3</span>) <span class="op">+</span></span>
+<span id="cb16-27"><a href="keno.html#cb16-27"></a><span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="kw">mean</span>(plays2<span class="op">$</span>Net))</span></code></pre></div>
+<p><img src="gamblr_book_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="keno.html#cb17-1"></a>summ_plays2 &lt;-<span class="st"> </span>plays2 <span class="op">%&gt;%</span></span>
+<span id="cb17-2"><a href="keno.html#cb17-2"></a><span class="st">  </span><span class="kw">group_by</span>(Color) <span class="op">%&gt;%</span></span>
+<span id="cb17-3"><a href="keno.html#cb17-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Count =</span> <span class="kw">n</span>(),</span>
+<span id="cb17-4"><a href="keno.html#cb17-4"></a>            <span class="dt">Mean =</span> <span class="kw">mean</span>(Net))</span></code></pre></div>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="keno.html#cb19-1"></a><span class="kw">ggplot</span>(plays2, <span class="kw">aes</span>(Net)) <span class="op">+</span></span>
+<span id="cb19-2"><a href="keno.html#cb19-2"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">30</span>) </span></code></pre></div>
+<p><img src="gamblr_book_files/figure-html/unnamed-chunk-7-2.png" width="672" /></p>
+</div>
+<div id="conclusion" class="section level2">
+<h2><span class="header-section-number">4.3</span> Conclusion</h2>
+<div id="reconciling-to-original-manual-in-a-restaurant-analysis" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> Reconciling to Original (Manual in a Restaurant) Analysis</h3>
+<p>I realize now that my original calculation did not appreciate the sum of the EV’s as being relevant (because players participate at all match levels in each game, rather then pre-specifying a match level). So my original EV was considerably understated.</p>
+<p>From this, we can draw some important lessons.</p>
+<ol style="list-style-type: decimal">
+<li>Don’t do probability after a couple of beers at lunch.</li>
+<li>Even when system probabilities are thought to be understood, a simulation will either prove it out or provide a better understanding.</li>
+</ol>
+<p>This has been a fun excercise, I hope you enjoyed it and learned a little bit about deriving probabilities when direct mathematical calculation is impractical.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="monte-carlo-simulations.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="final-words.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["gamblr_book.pdf", "gamblr_book.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

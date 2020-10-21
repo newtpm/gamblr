@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Methods | Something</title>
+  <title>Chapter 7 Let’s Play 100,000 Games of Keno | Something</title>
   <meta name="description" content="Gambling Simulations" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Methods | Something" />
+  <meta property="og:title" content="Chapter 7 Let’s Play 100,000 Games of Keno | Something" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Methods | Something" />
+  <meta name="twitter:title" content="Chapter 7 Let’s Play 100,000 Games of Keno | Something" />
   
   <meta name="twitter:description" content="Gambling Simulations" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="intro.html"/>
-<link rel="next" href="keno.html"/>
+<link rel="prev" href="the-game-of-keno.html"/>
+<link rel="next" href="net-position-after-30-games.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -177,18 +177,62 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="methods" class="section level1">
-<h1><span class="header-section-number">Chapter 4</span> Methods</h1>
-<p>We describe our methods in this chapter.</p>
-
+<div id="lets-play-100000-games-of-keno" class="section level1">
+<h1><span class="header-section-number">Chapter 7</span> Let’s Play 100,000 Games of Keno</h1>
+<p>Next we set our number of simulations to 100,00 and <code>play_keno()</code> for each sim. 100K sims are enough to reduce any random effect to a minimal level and we should feel confident in the <strong>approximate</strong> probabilities we derive. Our total simulation summary is shown below…</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="lets-play-100000-games-of-keno.html#cb14-1"></a>sims &lt;-<span class="st"> </span><span class="fl">1e3</span> <span class="co"># 100K simulations which takes some time, so only play with 1000 sims until sure. </span></span>
+<span id="cb14-2"><a href="lets-play-100000-games-of-keno.html#cb14-2"></a></span>
+<span id="cb14-3"><a href="lets-play-100000-games-of-keno.html#cb14-3"></a></span>
+<span id="cb14-4"><a href="lets-play-100000-games-of-keno.html#cb14-4"></a>plays &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span>sims <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># for each sim</span></span>
+<span id="cb14-5"><a href="lets-play-100000-games-of-keno.html#cb14-5"></a><span class="st">  </span><span class="kw">map_dfr</span>(<span class="cf">function</span>(x) <span class="kw">play_keno</span>(spots)) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># play a 10-Spot game with our function play_keno()</span></span>
+<span id="cb14-6"><a href="lets-play-100000-games-of-keno.html#cb14-6"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Sim =</span> <span class="dv">1</span><span class="op">:</span>sims, <span class="co"># sim ID&#39;s</span></span>
+<span id="cb14-7"><a href="lets-play-100000-games-of-keno.html#cb14-7"></a>         <span class="dt">Cumulative =</span> <span class="kw">cumsum</span>(Net)) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># calc cumulative sum</span></span>
+<span id="cb14-8"><a href="lets-play-100000-games-of-keno.html#cb14-8"></a><span class="st">  </span><span class="kw">relocate</span>(Sim) <span class="co"># move Sim to the first column</span></span>
+<span id="cb14-9"><a href="lets-play-100000-games-of-keno.html#cb14-9"></a></span>
+<span id="cb14-10"><a href="lets-play-100000-games-of-keno.html#cb14-10"></a>plays <span class="op">%&gt;%</span></span>
+<span id="cb14-11"><a href="lets-play-100000-games-of-keno.html#cb14-11"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Sims =</span> <span class="kw">n</span>(),</span>
+<span id="cb14-12"><a href="lets-play-100000-games-of-keno.html#cb14-12"></a>            <span class="dt">Wager =</span> <span class="kw">sum</span>(Wager),</span>
+<span id="cb14-13"><a href="lets-play-100000-games-of-keno.html#cb14-13"></a>            <span class="dt">Prize =</span> <span class="kw">sum</span>(Prize),</span>
+<span id="cb14-14"><a href="lets-play-100000-games-of-keno.html#cb14-14"></a>            <span class="dt">Net =</span> <span class="kw">sum</span>(Net), <span class="dt">.groups =</span> <span class="st">&quot;drop&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb14-15"><a href="lets-play-100000-games-of-keno.html#cb14-15"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">Prob =</span> <span class="kw">round</span>(Sims <span class="op">/</span><span class="st"> </span>sims, <span class="dv">3</span>),</span>
+<span id="cb14-16"><a href="lets-play-100000-games-of-keno.html#cb14-16"></a>         <span class="dt">EV =</span> Prize <span class="op">/</span><span class="st"> </span>Sims <span class="op">*</span><span class="st"> </span>Prob)</span></code></pre></div>
+<pre><code>## # A tibble: 1 x 6
+##    Sims Wager Prize   Net  Prob    EV
+##   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1  1000  1000   609  -391     1 0.609</code></pre>
+<p>For 1K simulations, we wagered $1K and lost $0.4K of it. Put another way, our expected value (EV) for the 10-Spot game is $0.61</p>
+<p>Despite the best match level’s expected value being only 15.6 cents (see below), our expected value for each game is 0 cents. This dynamic is due to the fact that players do not need to specify a match level beforehand. Thus, they participate in the payout at any winning level and their combined EV is the sum of all EV’s.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="lets-play-100000-games-of-keno.html#cb16-1"></a>summary &lt;-<span class="st"> </span>plays <span class="op">%&gt;%</span></span>
+<span id="cb16-2"><a href="lets-play-100000-games-of-keno.html#cb16-2"></a><span class="st">  </span><span class="kw">group_by</span>(Matches) <span class="op">%&gt;%</span></span>
+<span id="cb16-3"><a href="lets-play-100000-games-of-keno.html#cb16-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Sims =</span> <span class="kw">n</span>(),</span>
+<span id="cb16-4"><a href="lets-play-100000-games-of-keno.html#cb16-4"></a>            <span class="dt">Wager =</span> <span class="kw">sum</span>(Wager),</span>
+<span id="cb16-5"><a href="lets-play-100000-games-of-keno.html#cb16-5"></a>            <span class="dt">Prize =</span> <span class="kw">sum</span>(Prize),</span>
+<span id="cb16-6"><a href="lets-play-100000-games-of-keno.html#cb16-6"></a>            <span class="dt">Net =</span> <span class="kw">sum</span>(Net), <span class="dt">.groups =</span> <span class="st">&quot;drop&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb16-7"><a href="lets-play-100000-games-of-keno.html#cb16-7"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Prob =</span> <span class="kw">round</span>(Sims <span class="op">/</span><span class="st"> </span>sims, <span class="dv">3</span>),</span>
+<span id="cb16-8"><a href="lets-play-100000-games-of-keno.html#cb16-8"></a>         <span class="dt">EV =</span> Prize <span class="op">/</span><span class="st"> </span>Sims <span class="op">*</span><span class="st"> </span>Prob,</span>
+<span id="cb16-9"><a href="lets-play-100000-games-of-keno.html#cb16-9"></a>         <span class="dt">Odds =</span> <span class="kw">round</span>(<span class="dv">1</span><span class="op">/</span>EV, <span class="dv">0</span>))</span>
+<span id="cb16-10"><a href="lets-play-100000-games-of-keno.html#cb16-10"></a></span>
+<span id="cb16-11"><a href="lets-play-100000-games-of-keno.html#cb16-11"></a>summary <span class="co"># results of our sims</span></span></code></pre></div>
+<pre><code>## # A tibble: 8 x 8
+##   Matches  Sims Wager Prize   Net  Prob    EV  Odds
+##     &lt;int&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1       0    46    46    92    46 0.046 0.092    11
+## 2       1   173   173     0  -173 0.173 0       Inf
+## 3       2   281   281     0  -281 0.281 0       Inf
+## 4       3   267   267     0  -267 0.267 0       Inf
+## 5       4   160   160   160     0 0.16  0.16      6
+## 6       5    59    59   177   118 0.059 0.177     6
+## 7       6    13    13   130   117 0.013 0.13      8
+## 8       7     1     1    50    49 0.001 0.05     20</code></pre>
+<p><em>Note:</em> The simulated probability of getting 5 matches in the 10-Spot game is 5.2% - which is consistent with the stated odds (1/19) for five matches. This illustreates an value attribute of simulations - despite not knowing the formula that the Lottery used for their odds, we have been able to validate them as being acceptably accurate.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="keno.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="the-game-of-keno.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="net-position-after-30-games.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

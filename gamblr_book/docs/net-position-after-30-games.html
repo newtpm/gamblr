@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Methods | Something</title>
+  <title>Chapter 8 Net Position After 30 Games | Something</title>
   <meta name="description" content="Gambling Simulations" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Methods | Something" />
+  <meta property="og:title" content="Chapter 8 Net Position After 30 Games | Something" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Methods | Something" />
+  <meta name="twitter:title" content="Chapter 8 Net Position After 30 Games | Something" />
   
   <meta name="twitter:description" content="Gambling Simulations" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="intro.html"/>
-<link rel="next" href="keno.html"/>
+<link rel="prev" href="lets-play-100000-games-of-keno.html"/>
+<link rel="next" href="p.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -177,18 +177,53 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="methods" class="section level1">
-<h1><span class="header-section-number">Chapter 4</span> Methods</h1>
-<p>We describe our methods in this chapter.</p>
-
+<div id="net-position-after-30-games" class="section level1">
+<h1><span class="header-section-number">Chapter 8</span> Net Position After 30 Games</h1>
+<p>With an EV of 0 cents. we would expect to have $0 in our pocket after wagering $30 across 30 games. But no one plays Keno for the expected value, it is the big prizes that attracts players. So let’s play 30 games, 1,000 times, and see what our ending balances are after this defined gameset.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="net-position-after-30-games.html#cb18-1"></a>games &lt;-<span class="st"> </span><span class="dv">30</span></span>
+<span id="cb18-2"><a href="net-position-after-30-games.html#cb18-2"></a>sims2 &lt;-<span class="st"> </span><span class="dv">1000</span></span>
+<span id="cb18-3"><a href="net-position-after-30-games.html#cb18-3"></a></span>
+<span id="cb18-4"><a href="net-position-after-30-games.html#cb18-4"></a>plays2 &lt;-<span class="st"> </span><span class="kw">tibble</span>()</span>
+<span id="cb18-5"><a href="net-position-after-30-games.html#cb18-5"></a></span>
+<span id="cb18-6"><a href="net-position-after-30-games.html#cb18-6"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>sims2) {</span>
+<span id="cb18-7"><a href="net-position-after-30-games.html#cb18-7"></a>  </span>
+<span id="cb18-8"><a href="net-position-after-30-games.html#cb18-8"></a>  games_batch &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">30</span> <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># for each sim</span></span>
+<span id="cb18-9"><a href="net-position-after-30-games.html#cb18-9"></a><span class="st">    </span><span class="kw">map_dfr</span>(<span class="cf">function</span>(x) <span class="kw">play_keno</span>(spots)) <span class="op">%&gt;%</span></span>
+<span id="cb18-10"><a href="net-position-after-30-games.html#cb18-10"></a><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">Net =</span> <span class="kw">sum</span>(Net)) <span class="op">%&gt;%</span></span>
+<span id="cb18-11"><a href="net-position-after-30-games.html#cb18-11"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">Sim =</span> i) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># calc cumulative sum</span></span>
+<span id="cb18-12"><a href="net-position-after-30-games.html#cb18-12"></a><span class="st">    </span><span class="kw">relocate</span>(Sim)</span>
+<span id="cb18-13"><a href="net-position-after-30-games.html#cb18-13"></a>    </span>
+<span id="cb18-14"><a href="net-position-after-30-games.html#cb18-14"></a>   plays2 &lt;-<span class="st"> </span>plays2 <span class="op">%&gt;%</span></span>
+<span id="cb18-15"><a href="net-position-after-30-games.html#cb18-15"></a><span class="st">     </span><span class="kw">bind_rows</span>(games_batch) <span class="op">%&gt;%</span></span>
+<span id="cb18-16"><a href="net-position-after-30-games.html#cb18-16"></a><span class="st">     </span><span class="kw">mutate</span>(<span class="dt">Color =</span> <span class="kw">factor</span>(<span class="kw">case_when</span>(</span>
+<span id="cb18-17"><a href="net-position-after-30-games.html#cb18-17"></a>       Net <span class="op">&lt;=</span><span class="st"> </span><span class="dv">0</span> <span class="op">~</span><span class="st"> &quot;-$30 - $0 Loss&quot;</span>,</span>
+<span id="cb18-18"><a href="net-position-after-30-games.html#cb18-18"></a>       Net <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>Net <span class="op">&lt;=</span><span class="st"> </span><span class="dv">30</span> <span class="op">~</span><span class="st"> &quot;$1-$30 Gain&quot;</span>,</span>
+<span id="cb18-19"><a href="net-position-after-30-games.html#cb18-19"></a>       Net <span class="op">&gt;</span><span class="st"> </span><span class="dv">30</span> <span class="op">&amp;</span><span class="st"> </span>Net <span class="op">&lt;=</span><span class="st"> </span><span class="dv">60</span> <span class="op">~</span><span class="st"> &quot;$31-$60 Gain&quot;</span>,</span>
+<span id="cb18-20"><a href="net-position-after-30-games.html#cb18-20"></a>       Net <span class="op">&gt;</span><span class="st"> </span><span class="dv">60</span> <span class="op">&amp;</span><span class="st"> </span>Net <span class="op">&lt;=</span><span class="st"> </span><span class="dv">90</span> <span class="op">~</span><span class="st"> &quot;$61-$90 Gain&quot;</span>,</span>
+<span id="cb18-21"><a href="net-position-after-30-games.html#cb18-21"></a>       <span class="ot">TRUE</span> <span class="op">~</span><span class="st"> &quot;&gt;$90 Gain&quot;</span> )))</span>
+<span id="cb18-22"><a href="net-position-after-30-games.html#cb18-22"></a>  </span>
+<span id="cb18-23"><a href="net-position-after-30-games.html#cb18-23"></a>}</span>
+<span id="cb18-24"><a href="net-position-after-30-games.html#cb18-24"></a></span>
+<span id="cb18-25"><a href="net-position-after-30-games.html#cb18-25"></a><span class="kw">ggplot</span>(plays2, <span class="kw">aes</span>(Sim, Net, <span class="dt">color =</span> Color)) <span class="op">+</span></span>
+<span id="cb18-26"><a href="net-position-after-30-games.html#cb18-26"></a><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">alpha =</span> <span class="fl">0.3</span>) <span class="op">+</span></span>
+<span id="cb18-27"><a href="net-position-after-30-games.html#cb18-27"></a><span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="kw">mean</span>(plays2<span class="op">$</span>Net))</span></code></pre></div>
+<p><img src="gamblr_book_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="net-position-after-30-games.html#cb19-1"></a>summ_plays2 &lt;-<span class="st"> </span>plays2 <span class="op">%&gt;%</span></span>
+<span id="cb19-2"><a href="net-position-after-30-games.html#cb19-2"></a><span class="st">  </span><span class="kw">group_by</span>(Color) <span class="op">%&gt;%</span></span>
+<span id="cb19-3"><a href="net-position-after-30-games.html#cb19-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Count =</span> <span class="kw">n</span>(),</span>
+<span id="cb19-4"><a href="net-position-after-30-games.html#cb19-4"></a>            <span class="dt">Mean =</span> <span class="kw">mean</span>(Net))</span></code></pre></div>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="net-position-after-30-games.html#cb21-1"></a><span class="kw">ggplot</span>(plays2, <span class="kw">aes</span>(Net)) <span class="op">+</span></span>
+<span id="cb21-2"><a href="net-position-after-30-games.html#cb21-2"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">30</span>) </span></code></pre></div>
+<p><img src="gamblr_book_files/figure-html/unnamed-chunk-7-2.png" width="672" /></p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="keno.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="lets-play-100000-games-of-keno.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="p.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -1,5 +1,5 @@
 --- 
-title: "Something"
+title: "The *gamblr* Package"
 subtitle: "Understanding Gambling Probabilities Through Simulations in R"
 author: "Paul Newton"
 date: "`r Sys.Date()`"
@@ -12,28 +12,29 @@ link-citations: yes
 description: "Gambling Simulations"
 ---
 
-```{r eval=FALSE, echo=FALSE}
-install.packages("bookdown")
 
-```
-
-# Preface
+# Preface {-}
 
 > In gambling the many must lose in order that the few may win.
-  **George Bernard Shaw**
-*(1856-1950; Irish playwright
-and co-founder of the London School of Economics)*
+>
+> --- **George Bernard Shaw**  *(Irish Playwright)*
 
-I was watching TV one day when a Virginia Lottery advertisement for their new game Keno was shown. This got me to wondering how "fair" (or perhaps "rigged" the game was so I dedcided to find out by simulating a single Keno game, many times. The results were surprising and I decided I would expand it to beyond Keno. 
+I was watching TV one day when a Virginia Lottery advertisement for their new game Keno was shown. This got me to wondering how "fair" (or perhaps "rigged") the game was so I decided to find out by simulating a single Keno game, many times. The results were surprising and I decided I would expand it to beyond Keno. 
 
-# About the Author
+This book focuses purely on probabilities and expected payouts and does not attempt a social commentary on gambling. While gambling is not for me personally, if people enjoy the activity, then they are welcome to it as far as I am concerned. That said, perhaps after reading this book, when the true probabilities are better understood, some of the excitement may have evaporated. 
 
-I am not a gambler, I chose to write this book solely as an intellectual curiosity. My day job, as founder of Barque Labs, is helping businesses improve their decision making capabilities and performance by providing a combination of analytics and domain expertise. 
+## A Work in Progress
+
+Amongst the many wonderful things about online books is that they can be a perpetual work-in-progress. Consequently, I have published this book in an incomplete form, but one that contains stand-alone chapters that are (hopefully) an insightful read in and of themselves.
+
+Any ideas or corrections can be submitted as a github issues <link> or sent to <address> 
+
+# About the Author {-}
+
+I am not a gambler, I chose to write this book solely as an intellectual curiosity. The genesis for the idea occurred a few years ago, while vacationing in Australia, where a restaurant had their own Keno game going (many Australian restaurants, bars and lifesaving clubs offer Electronic Gaming Machines or "pokies"). To keep my increasingly restless nine-year old occupied, we manually calculated the odds of winning in Keno - and I remember them as being absolutely awful. Fast forward a few years and I saw a TV advert for Keno by the Virginia Lottery - so one quiet weekend I decided to dive into the game and understand the payoffs a little better.
+
+My day job, as founder of Barque Labs, is helping businesses improve their decision making capabilities and performance by providing a combination of analytics and domain expertise.
 
 I live in Geneva, Switzerland and work with (mostly) US-based clients.  
 
-
-# Gambling and Morality 
-
-I have no problem with people gambling and this book focuses purely on probabilities and expected payouts. While gambling is not for me, if people enjoy the activity, then they are welcome to it as far as I am concerned.  
 
