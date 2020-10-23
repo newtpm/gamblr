@@ -7,6 +7,12 @@ Now, what if for that \$1 bet the payout was \$5 for getting it correct? It's ea
 What makes the game more appealing would be the possibility of a large payout. Let's change the payout to be \$1.90 for a correct result, but if you are correct 10 times in a row, there is a further $750 payout. Now it is not so clear whether this bet should be accepted, and requires some probability calculations to determine whether it is a good or bad bet. Nevertheless, \$750 sounds like a large amount and it is this possibility of a large payout that encourages people to accept the bet. Whether this improved incentive makes it a worthy bet will be shown later.
 
 
+### Fair Bets & Expected Values
+
+A *fair bet* is one where your net expected value is the same as your cost. So if I were to bet \$1 that a fair coin flip would be heads and it pays out \$2, this would be a *fair bet* because my *expected value* (i.e. payout * probability or [\$2 * 0.5] ) equals my wager of \$1.  You usually make *fair bets* with friends and family and the wagers are fully distributed to the players. 
+
+One couldn't expect formal gambling games to be *fair* as the establishments need to be profitable, but how do you determine the level to which the game is biased against you? We use *expected value* (EV) as a means to determine this.
+
 ```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center'}
 par(mar = c(4, 4, .1, .1))
 plot(pressure, type = 'b', pch = 19)

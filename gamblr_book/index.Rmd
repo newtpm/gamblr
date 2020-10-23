@@ -35,6 +35,6 @@ I am not a gambler, I chose to write this book solely as an intellectual curiosi
 
 My day job, as founder of Barque Labs, is helping businesses improve their decision making capabilities and performance by providing a combination of analytics and domain expertise.
 
-I live in Geneva, Switzerland and work with (mostly) US-based clients.  
+I recently moved to Geneva (Switzerland), after having spent 18 years in the Washington DC area. I work with (mostly) US-based clients and help them use their own readily-available data to optimize their business. I am a big fan of the R programming language (and what RStudio has contributed to it) because it lets me do things that I couldn't even envision when my analysis was largely Excel based.
 
 

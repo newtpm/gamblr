@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Powerball | The gamblr Package</title>
+  <meta name="description" content="Gambling Simulations" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Powerball | The gamblr Package" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Gambling Simulations" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Powerball | The gamblr Package" />
+  
+  <meta name="twitter:description" content="Gambling Simulations" />
+  
+
+<meta name="author" content="Paul Newton" />
+
+
+<meta name="date" content="2020-10-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="keno.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#a-work-in-progress"><i class="fa fa-check"></i><b>0.1</b> A Work in Progress</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Gambling &amp; Probabilities</a><ul>
+<li class="chapter" data-level="1.0.1" data-path="intro.html"><a href="intro.html#fair-bets-expected-values"><i class="fa fa-check"></i><b>1.0.1</b> Fair Bets &amp; Expected Values</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="slightly-technical-backdrop.html"><a href="slightly-technical-backdrop.html"><i class="fa fa-check"></i>Slightly Technical Backdrop</a><ul>
+<li class="chapter" data-level="1.1" data-path="slightly-technical-backdrop.html"><a href="slightly-technical-backdrop.html#building-mc-simulations"><i class="fa fa-check"></i><b>1.1</b> Building MC Simulations</a></li>
+<li class="chapter" data-level="1.2" data-path="slightly-technical-backdrop.html"><a href="slightly-technical-backdrop.html#our-r-envronment"><i class="fa fa-check"></i><b>1.2</b> Our R Envronment</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="keno.html"><a href="keno.html"><i class="fa fa-check"></i><b>2</b> Keno</a><ul>
+<li class="chapter" data-level="2.1" data-path="keno.html"><a href="keno.html#the-game"><i class="fa fa-check"></i><b>2.1</b> The Game</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="keno.html"><a href="keno.html#simulating-a-game-in-r"><i class="fa fa-check"></i><b>2.1.1</b> Simulating a Game in R</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="keno.html"><a href="keno.html#the-play_keno-function"><i class="fa fa-check"></i><b>2.2</b> The <code>play_keno</code> Function</a></li>
+<li class="chapter" data-level="2.3" data-path="keno.html"><a href="keno.html#play-100000-games-of-keno"><i class="fa fa-check"></i><b>2.3</b> Play 100,000 Games of Keno</a></li>
+<li class="chapter" data-level="2.4" data-path="keno.html"><a href="keno.html#net-position-after-30-games"><i class="fa fa-check"></i><b>2.4</b> Net Position After 30 Games</a></li>
+<li class="chapter" data-level="2.5" data-path="keno.html"><a href="keno.html#conclusion"><i class="fa fa-check"></i><b>2.5</b> Conclusion</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="keno.html"><a href="keno.html#reconciling-to-original-manual-in-a-restaurant-analysis"><i class="fa fa-check"></i><b>2.5.1</b> Reconciling to Original (Manual in a Restaurant) Analysis</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="powerball.html"><a href="powerball.html"><i class="fa fa-check"></i><b>3</b> Powerball</a><ul>
+<li class="chapter" data-level="" data-path="powerball.html"><a href="powerball.html#multiple-winners"><i class="fa fa-check"></i>Multiple Winners</a></li>
+<li class="chapter" data-level="" data-path="powerball.html"><a href="powerball.html#cash-vs-annual-payout"><i class="fa fa-check"></i>Cash vs Annual Payout</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="4" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>4</b> Final Words</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The <em>gamblr</em> Package</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="powerball" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Powerball</h1>
+<blockquote>
+<p>If you enjoy playing for big cash prizes, then Powerball is the game for you! Powerball could make you the next multimillionaire</p>
+<p><strong>Virginia Lottery</strong></p>
+</blockquote>
+<p>Well, with that sort of tag-line <em>Powerball</em> sounds simply wonderful. Here we dive into the game and look into how likely you are to become the next millionaire.</p>
+<div id="multiple-winners" class="section level3 unnumbered">
+<h3>Multiple Winners</h3>
+<blockquote>
+<p>If more than one ticket matches all six numbers in a drawing, winners will share the jackpot.</p>
+</blockquote>
+<p>Likelihood of multiple winners…bigger the prize &gt; more players &gt; higher chance of split</p>
+</div>
+<div id="cash-vs-annual-payout" class="section level3 unnumbered">
+<h3>Cash vs Annual Payout</h3>
+<blockquote>
+<p>If you do win the jackpot, you will need to choose either an annual payout or cash option when you claim your prize.</p>
+</blockquote>
+<p>There is a DCF consideration here.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="keno.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["gamblr_book.pdf", "gamblr_book.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

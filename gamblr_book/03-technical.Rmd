@@ -33,7 +33,7 @@ library(readxl)
 
 sims = 1e3
 ```
-
+1e5 sims are enough to reduce any random effect to a minimal level and we should feel confident in the **approximate** probabilities we derive. Our total simulation summary is shown below... The trade-off with accuracy is the time it takes to run the simulations. 
 
 
 We describe our methods in this chapter.
