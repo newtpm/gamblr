@@ -1,0 +1,20 @@
+# Powerball
+
+> If you enjoy playing for big cash prizes, then Powerball is the game for you! Powerball could make you the next multimillionaire
+>
+> **Virginia Lottery**
+
+Well, with that sort of tag-line *Powerball* sounds simply wonderful. Here we dive into the game and look into how likely you are to become the next millionaire.
+
+### Multiple Winners {-}
+
+> If more than one ticket matches all six numbers in a drawing, winners will share the jackpot.
+
+Likelihood of multiple winners...bigger the prize > more players > higher chance of split > lower payout
+
+### Cash vs Annual Payout {-}
+
+> If you do win the jackpot, you will need to choose either an annual payout or cash option when you claim your prize. 
+
+There is a DCF consideration here.
+
