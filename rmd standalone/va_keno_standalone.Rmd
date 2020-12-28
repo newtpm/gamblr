@@ -1,0 +1,208 @@
+---
+title: "Slightly Better Than Burning Your Money"
+subtitle: "Understanding Keno Probabilities with Simulations in R"
+author: "Paul Newton"
+theme: "cerulean"
+date: "9/21/2020"
+output:
+  html_document:
+    theme: cerulean
+    highlight: tango
+    code_folding: hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+
+I recently way an advert on TV from the Virginia Lottery about their "new and exciting" game [Keno](https://www.valottery.com/data/draw-games/keno). This piqued my curiosity because a few years ago, while vacationing in Australia, a restaurant had their own Keno game going (many Australian restaurants, bars and lifesaving clubs offer Electronic Gaming Machines or "pokies"). To keep my increasingly restless nine-year old occupied, we manually calculated the odds of winning in Keno - and I remember them as being absolutely awful.  
+
+So, I thought it would be interesting to take a deeper dive into the probabilities of the Virginia version of the game to see how reputable a game the State of Virginia was running. 
+
+Rather than directly calculate the probabilities mathematically, I use the statistical programming language [R](https://www.r-project.org/) to simulate enough games of Keno, that we get a reasonably accurate insight of the probability of various outcomes. A knowledge of R is not necessary to understand this article, although the code is readable enough that anyone will be able to get the gist. For those who are interested in the related R code, press *Show All Code* in the top right of this document.
+
+
+# The Game of Keno
+
+In the Virginia version of the game, players pick from 1 to 10 numbers or "spots" (from the population range of 1 to 80). The Lottery then randomly picks 20 numbers from the same 1 to 80 range and players win predetermined amounts based on the number of matches they have. Virginia Lottery have a good explanation in a [2-minute marketing video](https://www.youtube.com/watch?v=LNPsMmxjQDc). 
+
+## Simulating A Game in R
+
+Assuming the game is unbiased, we can simulate a single game quite easily. Let's play the 10-Spot game, one-time, waging \$1. Below we pick 10 numbers from the population range in `pick` and then simulate a single game's drawing of 20 numbers in `draw`. 
+
+```{r, message=F}
+library(tidyverse) # load the required R packages
+library(readxl)
+
+spots <- 10 # the number of spots in our simulated game
+set.seed(11) # so that random outcomes can be reproduced
+
+pick <- sample(1:80, spots)
+sort(pick) # sorted for viewing convenience
+
+draw <- sample(1:80, 20)
+sort(draw)
+```
+
+Apparently, we have five matches in this particular game which sounds pretty promising as half of our 10 picks were selected. Below we fetch them with a formula. 
+```{r}
+sort(draw[draw %in% pick]) # subset from draw when the number is found in pick
+```
+
+Now we need to lookup the assocated Prize for our five matches from a 10-Spot game as per the published table in the Odds table of Virginia Lottery's [Keno page](https://www.valottery.com/data/draw-games/keno).
+  
+![](keno odds pic.PNG)
+
+Which turns out to be a Prize of \$3, or \$2 net of our ticket cost. We have won 2x our wager which sounds like a nice return but note that the odds of such an outcome in the table above is 19 (read as 1 in 19) or a (5.26%) probability. 
+
+### Fair Bets & Expected Values
+
+A *fair bet* is one where your net expected value is the same as your cost. So if I were to bet \$1 that a fair coin flip would be heads and it pays out \$2, this would be a *fair bet* because my *expected value* (i.e. payout * probability or [\$2 * 0.5] ) equals my wager of \$1.  You usually make *fair bets* with friends and family and the wagers are fully distributed to the players. 
+
+One couldn't expect formal gambling games to be *fair* as the establishments need to be profitable, but how do you determine the level to which the game is biased against you? We use *expected value* (EV) as a means to determine this.
+
+### The `play_keno` Function
+
+Now that the basics of the game are understood, let's wrap that single game into a function for reuse in our simulation. Note that the manual prize lookup has been automated via a manually created `prize_table`. The output of the function is a small table with a single row and the games parameters. 
+
+```{r}
+
+play_keno <- function(spots, wager = 1) {
+  
+  pick <- sample(1:80, spots) # same as above
+  draw <- sample(1:80, 20) # same as above
+
+  
+  matches <- sum(pick %in% draw) # we don't care whichs number match, just the total
+  
+  prize <- prize_table %>%
+    select(Match, contains(as.character(spots))) %>% # isolate column for the game we are playing
+    filter(Match == matches) %>% #isolate the matches we made
+    pull(2) # isolate just the numeric from the dataframe
+  
+  tmp <- tibble(Spots = spots,
+                Wager = wager,
+                Matches = matches,
+                Prize = prize * wager ) %>%
+    mutate(Net = Prize - Wager,
+           Color = ifelse(Prize == 0, 1, 2)) # color mapping for our charts
+  
+  return(tmp)
+}
+
+prize_table <- read_xlsx("../gamblr_book/input/keno prizes.xlsx") # load our prize table
+set.seed(11) # to create the same random outputs as above
+play_keno(10) # play a 10-Spot game
+
+```
+
+The official game allows for wagers of \$1 to \$10 which multiplies the prize by the wagered amount. So if we had made a \$5 wager above, our prize would have been \$15 (\$3 * 5). For simplicity and consistency, we are only going to consider wagers of $1 in our simulations as the probabilities hold, given the linear relationship of the prize to the wager.   
+
+# Let's Play 100,000 Games of Keno
+
+Next we set our number of simulations to 100,00 and `play_keno()` for each sim. 100K sims are enough to reduce any random effect to a minimal level and we should feel confident in the **approximate** probabilities we derive. Our total simulation summary is shown below...
+
+```{r}
+
+sims <- 1e3 # 100K simulations which takes some time, so only play with 1000 sims until sure. 
+
+
+plays <- 1:sims %>% # for each sim
+  map_dfr(function(x) play_keno(spots)) %>% # play a 10-Spot game with our function play_keno()
+  mutate(Sim = 1:sims, # sim ID's
+         Cumulative = cumsum(Net)) %>% # calc cumulative sum
+  relocate(Sim) # move Sim to the first column
+
+plays %>%
+  summarise(Sims = n(),
+            Wager = sum(Wager),
+            Prize = sum(Prize),
+            Net = sum(Net), .groups = "drop") %>%
+    mutate(Prob = round(Sims / sims, 3),
+         EV = Prize / Sims * Prob)
+
+```
+
+For `r round(nrow(plays)/1e3, 0)`K simulations, we wagered \$`r round(sum(plays$Wager)/ 1e3, 0)`K and lost \$`r round(-sum(plays$Net)/ 1e3, 1)`K of it. Put another way, our expected value (EV) for the 10-Spot game is \$`r round( sum(plays$Prize) / sum(plays$Wager), 2)`
+
+Despite the best match level's expected value being only 15.6 cents (see below), our expected value for each game is `r round(sum(plays$EV) * 100, 0)` cents. This dynamic is due to the fact that players do not need to specify a match level beforehand. Thus, they participate in the payout at any winning level and their combined EV is the sum of all EV's. 
+
+
+```{r}
+summary <- plays %>%
+  group_by(Matches) %>%
+  summarise(Sims = n(),
+            Wager = sum(Wager),
+            Prize = sum(Prize),
+            Net = sum(Net), .groups = "drop") %>%
+  mutate(Prob = round(Sims / sims, 3),
+         EV = Prize / Sims * Prob,
+         Odds = round(1/EV, 0))
+
+summary # results of our sims
+```
+
+*Note:* The simulated probability of getting 5 matches in the 10-Spot game is 5.2% - which is consistent with the stated odds (1/19) for five matches. This illustreates an value attribute of simulations - despite not knowing the formula that the Lottery used for their odds, we have been able to validate them as being acceptably accurate.
+
+
+# Net Position After 30 Games
+
+With an EV of  `r round(sum(plays$EV), 2)` cents. we would expect to have \$`r round(sum(plays$EV) * 30 , 2)` in our pocket after wagering \$30 across 30 games. But no one plays Keno for the expected value, it is the big prizes that attracts players. So let's play 30 games, 1,000 times, and see what our ending balances are after this defined gameset.
+
+```{r}
+
+games <- 30
+sims2 <- 1000
+
+plays2 <- tibble()
+
+for (i in 1:sims2) {
+  
+  games_batch <- 1:30 %>% # for each sim
+    map_dfr(function(x) play_keno(spots)) %>%
+    summarise(Net = sum(Net)) %>%
+    mutate(Sim = i) %>% # calc cumulative sum
+    relocate(Sim)
+    
+   plays2 <- plays2 %>%
+     bind_rows(games_batch) %>%
+     mutate(Color = factor(case_when(
+       Net <= 0 ~ "-$30 - $0 Loss",
+       Net > 0 & Net <= 30 ~ "$1-$30 Gain",
+       Net > 30 & Net <= 60 ~ "$31-$60 Gain",
+       Net > 60 & Net <= 90 ~ "$61-$90 Gain",
+       TRUE ~ ">$90 Gain" )))
+  
+}
+
+ggplot(plays2, aes(Sim, Net, color = Color)) +
+  geom_jitter(alpha = 0.3) +
+  geom_hline(yintercept = mean(plays2$Net))
+
+summ_plays2 <- plays2 %>%
+  group_by(Color) %>%
+  summarise(Count = n(),
+            Mean = mean(Net))
+
+
+ggplot(plays2, aes(Net)) +
+  geom_histogram(binwidth = 30) 
+
+```
+
+# P
+
+# Conclusion
+
+## Reconciling to Original (Manual in a Restaurant) Analysis
+
+I realize now that my original calculation did not appreciate the sum of the EV's as being relevant (because players participate at all match levels in each game, rather then pre-specifying a match level). So my original EV was considerably understated. 
+
+From this, we can draw some important lessons.
+
+1. Don't do probability after a couple of beers at lunch.
+2. Even when system probabilities are thought to be understood, a simulation will either prove it out or provide a better understanding. 
+
+This has been a fun excercise, I hope you enjoyed it and learned a little bit about deriving probabilities when direct mathematical calculation is impractical.

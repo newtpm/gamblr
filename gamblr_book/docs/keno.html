@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Keno | The gamblr Package</title>
+  <title>Chapter 3 Keno | The gamblr Package</title>
   <meta name="description" content="Gambling Simulations" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Keno | The gamblr Package" />
+  <meta property="og:title" content="Chapter 3 Keno | The gamblr Package" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Keno | The gamblr Package" />
+  <meta name="twitter:title" content="Chapter 3 Keno | The gamblr Package" />
   
   <meta name="twitter:description" content="Gambling Simulations" />
   
@@ -24,15 +24,15 @@
 <meta name="author" content="Paul Newton" />
 
 
-<meta name="date" content="2020-10-21" />
+<meta name="date" content="2020-10-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="slightly-technical-backdrop.html"/>
-<link rel="next" href="final-words.html"/>
+<link rel="prev" href="monte-carlo-simulations.html"/>
+<link rel="next" href="powerball.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -137,23 +137,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
 <li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#a-work-in-progress"><i class="fa fa-check"></i><b>0.1</b> A Work in Progress</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Gambling &amp; Probabilities</a></li>
-<li class="chapter" data-level="" data-path="slightly-technical-backdrop.html"><a href="slightly-technical-backdrop.html"><i class="fa fa-check"></i>Slightly Technical Backdrop</a><ul>
-<li class="chapter" data-level="1.1" data-path="slightly-technical-backdrop.html"><a href="slightly-technical-backdrop.html#building-mc-simulations"><i class="fa fa-check"></i><b>1.1</b> Building MC Simulations</a></li>
-<li class="chapter" data-level="1.2" data-path="slightly-technical-backdrop.html"><a href="slightly-technical-backdrop.html#our-r-envronment"><i class="fa fa-check"></i><b>1.2</b> Our R Envronment</a></li>
+<li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Gambling &amp; Probabilities</a><ul>
+<li class="chapter" data-level="1.0.1" data-path="intro.html"><a href="intro.html#fair-bets-expected-values"><i class="fa fa-check"></i><b>1.0.1</b> Fair Bets &amp; Expected Values</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="keno.html"><a href="keno.html"><i class="fa fa-check"></i><b>2</b> Keno</a><ul>
-<li class="chapter" data-level="2.0.1" data-path="keno.html"><a href="keno.html#simulating-a-game-in-r"><i class="fa fa-check"></i><b>2.0.1</b> Simulating a Game in R</a></li>
-<li class="chapter" data-level="2.0.2" data-path="keno.html"><a href="keno.html#fair-bets-expected-values"><i class="fa fa-check"></i><b>2.0.2</b> Fair Bets &amp; Expected Values</a></li>
-<li class="chapter" data-level="2.0.3" data-path="keno.html"><a href="keno.html#the-play_keno-function"><i class="fa fa-check"></i><b>2.0.3</b> The <code>play_keno</code> Function</a></li>
-<li class="chapter" data-level="2.1" data-path="keno.html"><a href="keno.html#lets-play-100000-games-of-keno"><i class="fa fa-check"></i><b>2.1</b> Let’s Play 100,000 Games of Keno</a></li>
-<li class="chapter" data-level="2.2" data-path="keno.html"><a href="keno.html#net-position-after-30-games"><i class="fa fa-check"></i><b>2.2</b> Net Position After 30 Games</a></li>
-<li class="chapter" data-level="2.3" data-path="keno.html"><a href="keno.html#conclusion"><i class="fa fa-check"></i><b>2.3</b> Conclusion</a><ul>
-<li class="chapter" data-level="2.3.1" data-path="keno.html"><a href="keno.html#reconciling-to-original-manual-in-a-restaurant-analysis"><i class="fa fa-check"></i><b>2.3.1</b> Reconciling to Original (Manual in a Restaurant) Analysis</a></li>
+<li class="chapter" data-level="" data-path="slightly-technical-backdrop.html"><a href="slightly-technical-backdrop.html"><i class="fa fa-check"></i>Slightly Technical Backdrop</a></li>
+<li class="chapter" data-level="2" data-path="monte-carlo-simulations.html"><a href="monte-carlo-simulations.html"><i class="fa fa-check"></i><b>2</b> Monte Carlo Simulations</a><ul>
+<li class="chapter" data-level="2.1" data-path="monte-carlo-simulations.html"><a href="monte-carlo-simulations.html#building-mc-simulations"><i class="fa fa-check"></i><b>2.1</b> Building MC Simulations</a></li>
+<li class="chapter" data-level="2.2" data-path="monte-carlo-simulations.html"><a href="monte-carlo-simulations.html#our-r-envronment"><i class="fa fa-check"></i><b>2.2</b> Our R Envronment</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="keno.html"><a href="keno.html"><i class="fa fa-check"></i><b>3</b> Keno</a><ul>
+<li class="chapter" data-level="3.1" data-path="keno.html"><a href="keno.html#the-game"><i class="fa fa-check"></i><b>3.1</b> The Game</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="keno.html"><a href="keno.html#simulating-a-game-in-r"><i class="fa fa-check"></i><b>3.1.1</b> Simulating a Game in R</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="keno.html"><a href="keno.html#the-play_keno-function"><i class="fa fa-check"></i><b>3.2</b> The <code>play_keno</code> Function</a></li>
+<li class="chapter" data-level="3.3" data-path="keno.html"><a href="keno.html#play-100000-games-of-keno"><i class="fa fa-check"></i><b>3.3</b> Play 100,000 Games of Keno</a></li>
+<li class="chapter" data-level="3.4" data-path="keno.html"><a href="keno.html#net-position-after-30-games"><i class="fa fa-check"></i><b>3.4</b> Net Position After 30 Games</a></li>
+<li class="chapter" data-level="3.5" data-path="keno.html"><a href="keno.html#strategy-testing"><i class="fa fa-check"></i><b>3.5</b> Strategy Testing</a></li>
+<li class="chapter" data-level="3.6" data-path="keno.html"><a href="keno.html#conclusion"><i class="fa fa-check"></i><b>3.6</b> Conclusion</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="keno.html"><a href="keno.html#reconciling-to-original-manual-in-a-restaurant-analysis"><i class="fa fa-check"></i><b>3.6.1</b> Reconciling to Original (Manual in a Restaurant) Analysis</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>3</b> Final Words</a></li>
+<li class="chapter" data-level="4" data-path="powerball.html"><a href="powerball.html"><i class="fa fa-check"></i><b>4</b> Powerball</a><ul>
+<li class="chapter" data-level="" data-path="powerball.html"><a href="powerball.html#multiple-winners"><i class="fa fa-check"></i>Multiple Winners</a></li>
+<li class="chapter" data-level="" data-path="powerball.html"><a href="powerball.html#cash-vs-annual-payout"><i class="fa fa-check"></i>Cash vs Annual Payout</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="5" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>5</b> Final Words</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -175,164 +185,1324 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="keno" class="section level1">
-<h1><span class="header-section-number">Chapter 2</span> Keno</h1>
+<h1><span class="header-section-number">Chapter 3</span> Keno</h1>
 <p>Our Keno simulation is modeled on the game provided by the Virginia State Lottery. <a href="https://www.valottery.com/data/draw-games/keno">Keno</a>.</p>
+<div id="the-game" class="section level2">
+<h2><span class="header-section-number">3.1</span> The Game</h2>
 <p>In the Virginia version of the game, players pick from 1 to 10 numbers or “spots” (from the population range of 1 to 80). The Lottery then randomly picks 20 numbers from the same 1 to 80 range and players win predetermined amounts based on the number of matches they have. Virginia Lottery have a good explanation in a <a href="https://www.youtube.com/watch?v=LNPsMmxjQDc">2-minute marketing video</a>.</p>
 <div id="simulating-a-game-in-r" class="section level3">
-<h3><span class="header-section-number">2.0.1</span> Simulating a Game in R</h3>
-<p>Assuming the game is unbiased, we can simulate a single game quite easily. Let’s play the 10-Spot game, one-time, waging $1. Below we pick 10 numbers from the population range in <code>pick</code> and then simulate a single game’s drawing of 20 numbers in <code>draw</code>.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="keno.html#cb3-1"></a><span class="kw">library</span>(tidyverse) <span class="co"># load the required R packages</span></span>
-<span id="cb3-2"><a href="keno.html#cb3-2"></a><span class="kw">library</span>(readxl)</span>
-<span id="cb3-3"><a href="keno.html#cb3-3"></a></span>
-<span id="cb3-4"><a href="keno.html#cb3-4"></a>spots &lt;-<span class="st"> </span><span class="dv">10</span> <span class="co"># the number of spots in our simulated game</span></span>
-<span id="cb3-5"><a href="keno.html#cb3-5"></a><span class="kw">set.seed</span>(<span class="dv">11</span>) <span class="co"># so that random outcomes can be reproduced</span></span>
-<span id="cb3-6"><a href="keno.html#cb3-6"></a></span>
-<span id="cb3-7"><a href="keno.html#cb3-7"></a>pick &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">80</span>, spots)</span>
-<span id="cb3-8"><a href="keno.html#cb3-8"></a><span class="kw">sort</span>(pick) <span class="co"># sorted for viewing convenience</span></span></code></pre></div>
+<h3><span class="header-section-number">3.1.1</span> Simulating a Game in R</h3>
+<p>Assuming the game is unbiased, we can simulate a single game quite easily. Let’s play the 10-Spot game, one-time, waging $1. Below we pick 10 numbers (spots = 10) from the population range in <code>pick</code> and then simulate a single game’s drawing of 20 numbers in <code>draw</code>.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="keno.html#cb11-1"></a>spots &lt;-<span class="st"> </span><span class="dv">10</span> <span class="co"># the number of spots in our simulated game</span></span>
+<span id="cb11-2"><a href="keno.html#cb11-2"></a>keno_range &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">80</span></span>
+<span id="cb11-3"><a href="keno.html#cb11-3"></a><span class="kw">set.seed</span>(<span class="dv">11</span>) <span class="co"># so that random outcomes can be reproduced</span></span>
+<span id="cb11-4"><a href="keno.html#cb11-4"></a></span>
+<span id="cb11-5"><a href="keno.html#cb11-5"></a>pick &lt;-<span class="st"> </span><span class="kw">sample</span>(keno_range, spots)</span>
+<span id="cb11-6"><a href="keno.html#cb11-6"></a><span class="kw">sort</span>(pick) <span class="co"># sorted for viewing convenience</span></span></code></pre></div>
 <pre><code>##  [1] 12 16 25 34 35 37 39 56 60 62</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="keno.html#cb5-1"></a>draw &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">80</span>, <span class="dv">20</span>)</span>
-<span id="cb5-2"><a href="keno.html#cb5-2"></a><span class="kw">sort</span>(draw)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="keno.html#cb13-1"></a>draw &lt;-<span class="st"> </span><span class="kw">sample</span>(keno_range, <span class="dv">20</span>)</span>
+<span id="cb13-2"><a href="keno.html#cb13-2"></a><span class="kw">sort</span>(draw)</span></code></pre></div>
 <pre><code>##  [1]  3  6  7  8 10 11 12 25 34 39 40 45 47 49 52 60 67 68 77 80</code></pre>
-<p>Apparently, we have five matches in this particular game which sounds pretty promising as half of our 10 picks were selected. Below we fetch them with a formula.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="keno.html#cb7-1"></a><span class="kw">sort</span>(draw[draw <span class="op">%in%</span><span class="st"> </span>pick]) <span class="co"># subset from draw when the number is found in pick</span></span></code></pre></div>
+<p>Apparently, we have five matches in this particular game which sounds pretty promising as half of our 10 spots were selected. Below we fetch them from the two objects <code>pick</code> and <code>draw</code> that we created above.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="keno.html#cb15-1"></a><span class="kw">sort</span>(draw[draw <span class="op">%in%</span><span class="st"> </span>pick]) <span class="co"># subset from draw when the number is found in pick</span></span></code></pre></div>
 <pre><code>## [1] 12 25 34 39 60</code></pre>
-<p>Now we need to lookup the assocated Prize for our five matches from a 10-Spot game as per the published table in the Odds table of Virginia Lottery’s <a href="https://www.valottery.com/data/draw-games/keno">Keno page</a>.</p>
+<p>Now we need to look-up the associated Prize for our five matches from a 10-Spot game as per the published table in the Odds table of Virginia Lottery’s <a href="https://www.valottery.com/data/draw-games/keno">Keno page</a>.</p>
 <p><img src="www/keno%20odds%20pic.PNG" /></p>
-<p>Which turns out to be a Prize of $3, or $2 net of our ticket cost. We have won 2x our wager which sounds like a nice return but note that the odds of such an outcome in the table above is 19 (read as 1 in 19) or a (5.26%) probability.</p>
+<p>Which turns out to be a Prize of $3, or $2 net of our ticket cost. We have won 2x our wager which is a nice return.</p>
+<p>Do note however, that the odds of such an outcome in the table above is 19 (read as 1 in 19) or a 5.26% probability. At first glance, this may seem a disproportionately small payoff for the odds of getting 5 spots correct, and that would be correct if the player had to specify the match level they were playing. But because there is a payoff (in the 10-Spot game) for all matches except 1, 2 or 3 matches there is a higher probability of getting a match at some level so the payoff to odds ratio is better. And below we’ll show how much better.</p>
 </div>
-<div id="fair-bets-expected-values" class="section level3">
-<h3><span class="header-section-number">2.0.2</span> Fair Bets &amp; Expected Values</h3>
-<p>A <em>fair bet</em> is one where your net expected value is the same as your cost. So if I were to bet $1 that a fair coin flip would be heads and it pays out $2, this would be a <em>fair bet</em> because my <em>expected value</em> (i.e. payout * probability or [$2 * 0.5] ) equals my wager of $1. You usually make <em>fair bets</em> with friends and family and the wagers are fully distributed to the players.</p>
-<p>One couldn’t expect formal gambling games to be <em>fair</em> as the establishments need to be profitable, but how do you determine the level to which the game is biased against you? We use <em>expected value</em> (EV) as a means to determine this.</p>
 </div>
-<div id="the-play_keno-function" class="section level3">
-<h3><span class="header-section-number">2.0.3</span> The <code>play_keno</code> Function</h3>
+<div id="the-play_keno-function" class="section level2">
+<h2><span class="header-section-number">3.2</span> The <code>play_keno</code> Function</h2>
 <p>Now that the basics of the game are understood, let’s wrap that single game into a function for reuse in our simulation. Note that the manual prize lookup has been automated via a manually created <code>prize_table</code>. The output of the function is a small table with a single row and the games parameters.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="keno.html#cb9-1"></a>play_keno &lt;-<span class="st"> </span><span class="cf">function</span>(spots, <span class="dt">wager =</span> <span class="dv">1</span>) {</span>
-<span id="cb9-2"><a href="keno.html#cb9-2"></a>  </span>
-<span id="cb9-3"><a href="keno.html#cb9-3"></a>  pick &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">80</span>, spots) <span class="co"># same as above</span></span>
-<span id="cb9-4"><a href="keno.html#cb9-4"></a>  draw &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">80</span>, <span class="dv">20</span>) <span class="co"># same as above</span></span>
-<span id="cb9-5"><a href="keno.html#cb9-5"></a></span>
-<span id="cb9-6"><a href="keno.html#cb9-6"></a>  </span>
-<span id="cb9-7"><a href="keno.html#cb9-7"></a>  matches &lt;-<span class="st"> </span><span class="kw">sum</span>(pick <span class="op">%in%</span><span class="st"> </span>draw) <span class="co"># we don&#39;t care whichs number match, just the total</span></span>
-<span id="cb9-8"><a href="keno.html#cb9-8"></a>  </span>
-<span id="cb9-9"><a href="keno.html#cb9-9"></a>  prize &lt;-<span class="st"> </span>prize_table <span class="op">%&gt;%</span></span>
-<span id="cb9-10"><a href="keno.html#cb9-10"></a><span class="st">    </span><span class="kw">select</span>(Match, <span class="kw">contains</span>(<span class="kw">as.character</span>(spots))) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># isolate column for the game we are playing</span></span>
-<span id="cb9-11"><a href="keno.html#cb9-11"></a><span class="st">    </span><span class="kw">filter</span>(Match <span class="op">==</span><span class="st"> </span>matches) <span class="op">%&gt;%</span><span class="st"> </span><span class="co">#isolate the matches we made</span></span>
-<span id="cb9-12"><a href="keno.html#cb9-12"></a><span class="st">    </span><span class="kw">pull</span>(<span class="dv">2</span>) <span class="co"># isolate just the numeric from the dataframe</span></span>
-<span id="cb9-13"><a href="keno.html#cb9-13"></a>  </span>
-<span id="cb9-14"><a href="keno.html#cb9-14"></a>  tmp &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">Spots =</span> spots,</span>
-<span id="cb9-15"><a href="keno.html#cb9-15"></a>                <span class="dt">Wager =</span> wager,</span>
-<span id="cb9-16"><a href="keno.html#cb9-16"></a>                <span class="dt">Matches =</span> matches,</span>
-<span id="cb9-17"><a href="keno.html#cb9-17"></a>                <span class="dt">Prize =</span> prize <span class="op">*</span><span class="st"> </span>wager ) <span class="op">%&gt;%</span></span>
-<span id="cb9-18"><a href="keno.html#cb9-18"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">Net =</span> Prize <span class="op">-</span><span class="st"> </span>Wager,</span>
-<span id="cb9-19"><a href="keno.html#cb9-19"></a>           <span class="dt">Color =</span> <span class="kw">ifelse</span>(Prize <span class="op">==</span><span class="st"> </span><span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>)) <span class="co"># color mapping for our charts</span></span>
-<span id="cb9-20"><a href="keno.html#cb9-20"></a>  </span>
-<span id="cb9-21"><a href="keno.html#cb9-21"></a>  <span class="kw">return</span>(tmp)</span>
-<span id="cb9-22"><a href="keno.html#cb9-22"></a>}</span>
-<span id="cb9-23"><a href="keno.html#cb9-23"></a></span>
-<span id="cb9-24"><a href="keno.html#cb9-24"></a>prize_table &lt;-<span class="st"> </span><span class="kw">read_xlsx</span>(<span class="st">&quot;./input/keno prizes.xlsx&quot;</span>) <span class="co"># load our prize table</span></span>
-<span id="cb9-25"><a href="keno.html#cb9-25"></a><span class="kw">set.seed</span>(<span class="dv">11</span>) <span class="co"># to creat the same random outputs as above</span></span>
-<span id="cb9-26"><a href="keno.html#cb9-26"></a><span class="kw">play_keno</span>(<span class="dv">10</span>) <span class="co"># play a 10-Spot game</span></span></code></pre></div>
-<pre><code>## # A tibble: 1 x 6
-##   Spots Wager Matches Prize   Net Color
-##   &lt;dbl&gt; &lt;dbl&gt;   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1    10     1       5     3     2     2</code></pre>
-<p>The official game allows for wagers of $1 to $10 which multiplies the prize by the wagered amount. So if we had made a $5 wager above, our prize would have been $15 ($3 * 5). For simplicity and consistency, we are only going to consider wagers of $1 in our simulations as the probabilities hold, given the linear relationship of the prize to the wager.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="keno.html#cb17-1"></a>play_keno &lt;-<span class="st"> </span><span class="cf">function</span>(spots, <span class="dt">keno_range =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">80</span>, <span class="dt">draw_size =</span> <span class="dv">20</span>, <span class="dt">wager =</span> <span class="dv">1</span>) {</span>
+<span id="cb17-2"><a href="keno.html#cb17-2"></a>  </span>
+<span id="cb17-3"><a href="keno.html#cb17-3"></a>  pick &lt;-<span class="st"> </span><span class="kw">sample</span>(keno_range, spots) <span class="co"># same as above</span></span>
+<span id="cb17-4"><a href="keno.html#cb17-4"></a>  draw &lt;-<span class="st"> </span><span class="kw">sample</span>(keno_range, draw_size) <span class="co"># same as above</span></span>
+<span id="cb17-5"><a href="keno.html#cb17-5"></a></span>
+<span id="cb17-6"><a href="keno.html#cb17-6"></a>  </span>
+<span id="cb17-7"><a href="keno.html#cb17-7"></a>  matches &lt;-<span class="st"> </span><span class="kw">sum</span>(pick <span class="op">%in%</span><span class="st"> </span>draw) <span class="co"># we don&#39;t care whichs number match, just the total</span></span>
+<span id="cb17-8"><a href="keno.html#cb17-8"></a>  </span>
+<span id="cb17-9"><a href="keno.html#cb17-9"></a>  prize &lt;-<span class="st"> </span>prize_table <span class="op">%&gt;%</span></span>
+<span id="cb17-10"><a href="keno.html#cb17-10"></a><span class="st">    </span><span class="kw">select</span>(Match, <span class="kw">contains</span>(<span class="kw">as.character</span>(spots))) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># isolate column for the game we are playing</span></span>
+<span id="cb17-11"><a href="keno.html#cb17-11"></a><span class="st">    </span><span class="kw">filter</span>(Match <span class="op">==</span><span class="st"> </span>matches) <span class="op">%&gt;%</span><span class="st"> </span><span class="co">#isolate the matches we made</span></span>
+<span id="cb17-12"><a href="keno.html#cb17-12"></a><span class="st">    </span><span class="kw">pull</span>(<span class="dv">2</span>) <span class="co"># isolate just the numeric from the dataframe</span></span>
+<span id="cb17-13"><a href="keno.html#cb17-13"></a>  </span>
+<span id="cb17-14"><a href="keno.html#cb17-14"></a>  tmp &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">Spots =</span> spots,</span>
+<span id="cb17-15"><a href="keno.html#cb17-15"></a>                <span class="dt">Wager =</span> wager,</span>
+<span id="cb17-16"><a href="keno.html#cb17-16"></a>                <span class="dt">Matches =</span> matches,</span>
+<span id="cb17-17"><a href="keno.html#cb17-17"></a>                <span class="dt">Prize =</span> prize <span class="op">*</span><span class="st"> </span>wager ) <span class="op">%&gt;%</span></span>
+<span id="cb17-18"><a href="keno.html#cb17-18"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">Net =</span> Prize <span class="op">-</span><span class="st"> </span>Wager,</span>
+<span id="cb17-19"><a href="keno.html#cb17-19"></a>           <span class="dt">Result =</span> <span class="kw">factor</span>(<span class="kw">ifelse</span>(Prize <span class="op">==</span><span class="st"> </span><span class="dv">0</span>, <span class="st">&quot;Lose&quot;</span>, <span class="st">&quot;Win&quot;</span>))) <span class="co"># color mapping for our charts</span></span>
+<span id="cb17-20"><a href="keno.html#cb17-20"></a>  </span>
+<span id="cb17-21"><a href="keno.html#cb17-21"></a>  <span class="kw">return</span>(tmp)</span>
+<span id="cb17-22"><a href="keno.html#cb17-22"></a>}</span>
+<span id="cb17-23"><a href="keno.html#cb17-23"></a></span>
+<span id="cb17-24"><a href="keno.html#cb17-24"></a>prize_table &lt;-<span class="st"> </span><span class="kw">read_xlsx</span>(<span class="st">&quot;./input/keno prizes.xlsx&quot;</span>) <span class="co"># load our prize table</span></span>
+<span id="cb17-25"><a href="keno.html#cb17-25"></a><span class="kw">set.seed</span>(<span class="dv">11</span>) <span class="co"># to creat the same random outputs as above</span></span>
+<span id="cb17-26"><a href="keno.html#cb17-26"></a><span class="kw">gt</span>(<span class="kw">play_keno</span>(<span class="dv">10</span>)) <span class="co"># play a 10-Spot game, show in nice table with gt()</span></span></code></pre></div>
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#qeretqpvln .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#qeretqpvln .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#qeretqpvln .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#qeretqpvln .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 4px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#qeretqpvln .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#qeretqpvln .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#qeretqpvln .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#qeretqpvln .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#qeretqpvln .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#qeretqpvln .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#qeretqpvln .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#qeretqpvln .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#qeretqpvln .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#qeretqpvln .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#qeretqpvln .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#qeretqpvln .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#qeretqpvln .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#qeretqpvln .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#qeretqpvln .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#qeretqpvln .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#qeretqpvln .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#qeretqpvln .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#qeretqpvln .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#qeretqpvln .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#qeretqpvln .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#qeretqpvln .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#qeretqpvln .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
+}
+
+#qeretqpvln .gt_left {
+  text-align: left;
+}
+
+#qeretqpvln .gt_center {
+  text-align: center;
+}
+
+#qeretqpvln .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#qeretqpvln .gt_font_normal {
+  font-weight: normal;
+}
+
+#qeretqpvln .gt_font_bold {
+  font-weight: bold;
+}
+
+#qeretqpvln .gt_font_italic {
+  font-style: italic;
+}
+
+#qeretqpvln .gt_super {
+  font-size: 65%;
+}
+
+#qeretqpvln .gt_footnote_marks {
+  font-style: italic;
+  font-size: 65%;
+}
+</style>
+<div id="qeretqpvln" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Spots</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Wager</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1">Matches</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Prize</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Net</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1">Result</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr>
+      <td class="gt_row gt_right">10</td>
+      <td class="gt_row gt_right">1</td>
+      <td class="gt_row gt_center">5</td>
+      <td class="gt_row gt_right">3</td>
+      <td class="gt_row gt_right">2</td>
+      <td class="gt_row gt_center">Win</td>
+    </tr>
+  </tbody>
+  
+  
+</table></div>
+<p>Interpreting the table above, we played the 10 spot game for a wager of $1 and got 5 matches equating to a $3 prize ($2 net of wager).</p>
+<p>The official Virginia game allows for wagers of $1 to $10 which multiplies the prize by the wagered amount. So if we had made a $5 wager above, our prize would have been $15 ($3 * 5). For simplicity and consistency, we are only going to consider wagers of $1 in our simulations as the probabilities hold, given the linear relationship of the prize to the wager.</p>
 </div>
-<div id="lets-play-100000-games-of-keno" class="section level2">
-<h2><span class="header-section-number">2.1</span> Let’s Play 100,000 Games of Keno</h2>
-<p>Next we set our number of simulations to 100,00 and <code>play_keno()</code> for each sim. 100K sims are enough to reduce any random effect to a minimal level and we should feel confident in the <strong>approximate</strong> probabilities we derive. Our total simulation summary is shown below…</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="keno.html#cb11-1"></a>sims &lt;-<span class="st"> </span><span class="fl">1e3</span> <span class="co"># 100K simulations which takes some time, so only play with 1000 sims until sure. </span></span>
-<span id="cb11-2"><a href="keno.html#cb11-2"></a></span>
-<span id="cb11-3"><a href="keno.html#cb11-3"></a></span>
-<span id="cb11-4"><a href="keno.html#cb11-4"></a>plays &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span>sims <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># for each sim</span></span>
-<span id="cb11-5"><a href="keno.html#cb11-5"></a><span class="st">  </span><span class="kw">map_dfr</span>(<span class="cf">function</span>(x) <span class="kw">play_keno</span>(spots)) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># play a 10-Spot game with our function play_keno()</span></span>
-<span id="cb11-6"><a href="keno.html#cb11-6"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Sim =</span> <span class="dv">1</span><span class="op">:</span>sims, <span class="co"># sim ID&#39;s</span></span>
-<span id="cb11-7"><a href="keno.html#cb11-7"></a>         <span class="dt">Cumulative =</span> <span class="kw">cumsum</span>(Net)) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># calc cumulative sum</span></span>
-<span id="cb11-8"><a href="keno.html#cb11-8"></a><span class="st">  </span><span class="kw">relocate</span>(Sim) <span class="co"># move Sim to the first column</span></span>
-<span id="cb11-9"><a href="keno.html#cb11-9"></a></span>
-<span id="cb11-10"><a href="keno.html#cb11-10"></a>plays <span class="op">%&gt;%</span></span>
-<span id="cb11-11"><a href="keno.html#cb11-11"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Sims =</span> <span class="kw">n</span>(),</span>
-<span id="cb11-12"><a href="keno.html#cb11-12"></a>            <span class="dt">Wager =</span> <span class="kw">sum</span>(Wager),</span>
-<span id="cb11-13"><a href="keno.html#cb11-13"></a>            <span class="dt">Prize =</span> <span class="kw">sum</span>(Prize),</span>
-<span id="cb11-14"><a href="keno.html#cb11-14"></a>            <span class="dt">Net =</span> <span class="kw">sum</span>(Net), <span class="dt">.groups =</span> <span class="st">&quot;drop&quot;</span>) <span class="op">%&gt;%</span></span>
-<span id="cb11-15"><a href="keno.html#cb11-15"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">Prob =</span> <span class="kw">round</span>(Sims <span class="op">/</span><span class="st"> </span>sims, <span class="dv">3</span>),</span>
-<span id="cb11-16"><a href="keno.html#cb11-16"></a>            <span class="dt">EV =</span> Prize <span class="op">/</span><span class="st"> </span>Sims <span class="op">*</span><span class="st"> </span>Prob)</span></code></pre></div>
-<pre><code>## # A tibble: 1 x 6
-##    Sims Wager Prize   Net  Prob    EV
-##   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1  1000  1000   609  -391     1 0.609</code></pre>
-<p>For 1K simulations, we wagered $1K and lost $0.39K of it. Put another way, our expected value (EV) for the 10-Spot game is $0.61</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="keno.html#cb13-1"></a>summary &lt;-<span class="st"> </span>plays <span class="op">%&gt;%</span></span>
-<span id="cb13-2"><a href="keno.html#cb13-2"></a><span class="st">  </span><span class="kw">group_by</span>(Matches) <span class="op">%&gt;%</span></span>
-<span id="cb13-3"><a href="keno.html#cb13-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Sims =</span> <span class="kw">n</span>(),</span>
-<span id="cb13-4"><a href="keno.html#cb13-4"></a>            <span class="dt">Wager =</span> <span class="kw">sum</span>(Wager),</span>
-<span id="cb13-5"><a href="keno.html#cb13-5"></a>            <span class="dt">Prize =</span> <span class="kw">sum</span>(Prize),</span>
-<span id="cb13-6"><a href="keno.html#cb13-6"></a>            <span class="dt">Net =</span> <span class="kw">sum</span>(Net), <span class="dt">.groups =</span> <span class="st">&quot;drop&quot;</span>) <span class="op">%&gt;%</span></span>
-<span id="cb13-7"><a href="keno.html#cb13-7"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Prob =</span> <span class="kw">round</span>(Sims <span class="op">/</span><span class="st"> </span>sims, <span class="dv">3</span>),</span>
-<span id="cb13-8"><a href="keno.html#cb13-8"></a>         <span class="dt">EV =</span> Prize <span class="op">/</span><span class="st"> </span>Sims <span class="op">*</span><span class="st"> </span>Prob,</span>
-<span id="cb13-9"><a href="keno.html#cb13-9"></a>         <span class="dt">Odds =</span> <span class="kw">round</span>(<span class="dv">1</span><span class="op">/</span>EV, <span class="dv">0</span>))</span>
-<span id="cb13-10"><a href="keno.html#cb13-10"></a></span>
-<span id="cb13-11"><a href="keno.html#cb13-11"></a>summary <span class="co"># results of our sims</span></span></code></pre></div>
-<pre><code>## # A tibble: 8 x 8
-##   Matches  Sims Wager Prize   Net  Prob    EV  Odds
-##     &lt;int&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1       0    46    46    92    46 0.046 0.092    11
-## 2       1   173   173     0  -173 0.173 0       Inf
-## 3       2   281   281     0  -281 0.281 0       Inf
-## 4       3   267   267     0  -267 0.267 0       Inf
-## 5       4   160   160   160     0 0.16  0.16      6
-## 6       5    59    59   177   118 0.059 0.177     6
-## 7       6    13    13   130   117 0.013 0.13      8
-## 8       7     1     1    50    49 0.001 0.05     20</code></pre>
+<div id="play-100000-games-of-keno" class="section level2">
+<h2><span class="header-section-number">3.3</span> Play 100,000 Games of Keno</h2>
+<p>In [Our R Environment] we set the number of simulations (<code>sims</code>) to 100,000 and here we are going to run <code>play_keno()</code> for each simulation.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="keno.html#cb18-1"></a>plays &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span>sims <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># play a game for each sim</span></span>
+<span id="cb18-2"><a href="keno.html#cb18-2"></a><span class="st">  </span><span class="kw">map_dfr</span>(<span class="cf">function</span>(x) <span class="kw">play_keno</span>(spots)) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># play a 10-Spot game with our function play_keno()</span></span>
+<span id="cb18-3"><a href="keno.html#cb18-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Sim =</span> <span class="dv">1</span><span class="op">:</span>sims, <span class="co"># sim ID&#39;s</span></span>
+<span id="cb18-4"><a href="keno.html#cb18-4"></a>         <span class="dt">Cumulative =</span> <span class="kw">cumsum</span>(Net)) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># calc cumulative sum</span></span>
+<span id="cb18-5"><a href="keno.html#cb18-5"></a><span class="st">  </span><span class="kw">relocate</span>(Sim) <span class="co"># move Sim to the first column</span></span>
+<span id="cb18-6"><a href="keno.html#cb18-6"></a></span>
+<span id="cb18-7"><a href="keno.html#cb18-7"></a><span class="kw">gt</span>(plays <span class="op">%&gt;%</span></span>
+<span id="cb18-8"><a href="keno.html#cb18-8"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Sims =</span> <span class="kw">n</span>(),</span>
+<span id="cb18-9"><a href="keno.html#cb18-9"></a>            <span class="dt">Wager =</span> <span class="kw">sum</span>(Wager),</span>
+<span id="cb18-10"><a href="keno.html#cb18-10"></a>            <span class="dt">Prize =</span> <span class="kw">sum</span>(Prize),</span>
+<span id="cb18-11"><a href="keno.html#cb18-11"></a>            <span class="dt">Net =</span> <span class="kw">sum</span>(Net),</span>
+<span id="cb18-12"><a href="keno.html#cb18-12"></a>            <span class="dt">Wins =</span> <span class="kw">sum</span>(Result <span class="op">==</span><span class="st"> &quot;Win&quot;</span>), <span class="dt">.groups =</span> <span class="st">&quot;drop&quot;</span>,) <span class="op">%&gt;%</span></span>
+<span id="cb18-13"><a href="keno.html#cb18-13"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">Prob =</span> <span class="kw">round</span>(Sims <span class="op">/</span><span class="st"> </span>sims, <span class="dv">3</span>),</span>
+<span id="cb18-14"><a href="keno.html#cb18-14"></a>            <span class="dt">EV =</span> Prize <span class="op">/</span><span class="st"> </span>Sims <span class="op">*</span><span class="st"> </span>Prob) ) <span class="op">%&gt;%</span></span>
+<span id="cb18-15"><a href="keno.html#cb18-15"></a><span class="st">    </span><span class="kw">tab_header</span>(</span>
+<span id="cb18-16"><a href="keno.html#cb18-16"></a>    <span class="dt">title =</span> <span class="st">&quot;Summary Results of 100K Simulated Games&quot;</span>,</span>
+<span id="cb18-17"><a href="keno.html#cb18-17"></a>    <span class="dt">subtitle =</span> <span class="st">&quot;Subtitle&quot;</span></span>
+<span id="cb18-18"><a href="keno.html#cb18-18"></a>  ) </span></code></pre></div>
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#tcgqgoarss .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#tcgqgoarss .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#tcgqgoarss .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#tcgqgoarss .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 4px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#tcgqgoarss .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#tcgqgoarss .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#tcgqgoarss .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#tcgqgoarss .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#tcgqgoarss .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#tcgqgoarss .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#tcgqgoarss .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#tcgqgoarss .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#tcgqgoarss .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#tcgqgoarss .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#tcgqgoarss .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#tcgqgoarss .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#tcgqgoarss .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#tcgqgoarss .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#tcgqgoarss .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#tcgqgoarss .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#tcgqgoarss .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#tcgqgoarss .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#tcgqgoarss .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#tcgqgoarss .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#tcgqgoarss .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#tcgqgoarss .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#tcgqgoarss .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
+}
+
+#tcgqgoarss .gt_left {
+  text-align: left;
+}
+
+#tcgqgoarss .gt_center {
+  text-align: center;
+}
+
+#tcgqgoarss .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#tcgqgoarss .gt_font_normal {
+  font-weight: normal;
+}
+
+#tcgqgoarss .gt_font_bold {
+  font-weight: bold;
+}
+
+#tcgqgoarss .gt_font_italic {
+  font-style: italic;
+}
+
+#tcgqgoarss .gt_super {
+  font-size: 65%;
+}
+
+#tcgqgoarss .gt_footnote_marks {
+  font-style: italic;
+  font-size: 65%;
+}
+</style>
+<div id="tcgqgoarss" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
+  <thead class="gt_header">
+    <tr>
+      <th colspan="7" class="gt_heading gt_title gt_font_normal" style>Summary Results of 100K Simulated Games</th>
+    </tr>
+    <tr>
+      <th colspan="7" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style>Subtitle</th>
+    </tr>
+  </thead>
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1">Sims</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Wager</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Prize</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Net</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1">Wins</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Prob</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">EV</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr>
+      <td class="gt_row gt_center">1000</td>
+      <td class="gt_row gt_right">1000</td>
+      <td class="gt_row gt_right">610</td>
+      <td class="gt_row gt_right">-390</td>
+      <td class="gt_row gt_center">280</td>
+      <td class="gt_row gt_right">1</td>
+      <td class="gt_row gt_right">0.61</td>
+    </tr>
+  </tbody>
+  
+  
+</table></div>
+<p>For 1K simulations, we wagered $1K and lost $0.39K of it. Put another way, our expected value (EV) for the 10-Spot game is $0.61. Note that the proportion of winning plays for any non-zero prize amount is `r round(sum(plays$Result == “Win”) / sims, 2).</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="keno.html#cb19-1"></a>summary &lt;-<span class="st"> </span>plays <span class="op">%&gt;%</span></span>
+<span id="cb19-2"><a href="keno.html#cb19-2"></a><span class="st">  </span><span class="kw">group_by</span>(Matches) <span class="op">%&gt;%</span></span>
+<span id="cb19-3"><a href="keno.html#cb19-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Sims =</span> <span class="kw">n</span>(),</span>
+<span id="cb19-4"><a href="keno.html#cb19-4"></a>            <span class="dt">Wager =</span> <span class="kw">sum</span>(Wager),</span>
+<span id="cb19-5"><a href="keno.html#cb19-5"></a>            <span class="dt">Prize =</span> <span class="kw">sum</span>(Prize),</span>
+<span id="cb19-6"><a href="keno.html#cb19-6"></a>            <span class="dt">Net =</span> <span class="kw">sum</span>(Net), <span class="dt">.groups =</span> <span class="st">&quot;drop&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb19-7"><a href="keno.html#cb19-7"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Prob =</span> <span class="kw">round</span>(Sims <span class="op">/</span><span class="st"> </span>sims, <span class="dv">3</span>),</span>
+<span id="cb19-8"><a href="keno.html#cb19-8"></a>         <span class="dt">EV =</span> Prize <span class="op">/</span><span class="st"> </span>Sims <span class="op">*</span><span class="st"> </span>Prob) <span class="co">#%&gt;%</span></span>
+<span id="cb19-9"><a href="keno.html#cb19-9"></a>  <span class="co">#adorn_totals()</span></span>
+<span id="cb19-10"><a href="keno.html#cb19-10"></a></span>
+<span id="cb19-11"><a href="keno.html#cb19-11"></a>summary <span class="op">%&gt;%</span></span>
+<span id="cb19-12"><a href="keno.html#cb19-12"></a><span class="st">  </span><span class="kw">adorn_totals</span>() <span class="op">%&gt;%</span></span>
+<span id="cb19-13"><a href="keno.html#cb19-13"></a><span class="st">  </span><span class="kw">gt</span>() <span class="op">%&gt;%</span></span>
+<span id="cb19-14"><a href="keno.html#cb19-14"></a><span class="st">    </span><span class="kw">tab_style</span>(</span>
+<span id="cb19-15"><a href="keno.html#cb19-15"></a>    <span class="dt">style =</span> <span class="kw">list</span>(</span>
+<span id="cb19-16"><a href="keno.html#cb19-16"></a>      <span class="kw">cell_fill</span>(<span class="dt">color =</span> <span class="st">&quot;#008bac&quot;</span>),     </span>
+<span id="cb19-17"><a href="keno.html#cb19-17"></a>      <span class="kw">cell_text</span>(<span class="dt">color =</span> <span class="st">&quot;white&quot;</span>)),</span>
+<span id="cb19-18"><a href="keno.html#cb19-18"></a>    <span class="dt">locations =</span> <span class="kw">cells_body</span>(</span>
+<span id="cb19-19"><a href="keno.html#cb19-19"></a>      <span class="dt">rows =</span> Matches <span class="op">==</span><span class="st"> &quot;Total&quot;</span>)</span>
+<span id="cb19-20"><a href="keno.html#cb19-20"></a>  ) <span class="co"># results of our sims</span></span></code></pre></div>
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#zrafnukslo .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#zrafnukslo .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#zrafnukslo .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#zrafnukslo .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 4px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#zrafnukslo .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#zrafnukslo .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#zrafnukslo .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#zrafnukslo .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#zrafnukslo .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#zrafnukslo .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#zrafnukslo .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#zrafnukslo .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#zrafnukslo .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#zrafnukslo .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#zrafnukslo .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#zrafnukslo .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#zrafnukslo .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#zrafnukslo .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#zrafnukslo .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#zrafnukslo .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#zrafnukslo .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#zrafnukslo .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#zrafnukslo .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#zrafnukslo .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#zrafnukslo .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#zrafnukslo .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#zrafnukslo .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
+}
+
+#zrafnukslo .gt_left {
+  text-align: left;
+}
+
+#zrafnukslo .gt_center {
+  text-align: center;
+}
+
+#zrafnukslo .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#zrafnukslo .gt_font_normal {
+  font-weight: normal;
+}
+
+#zrafnukslo .gt_font_bold {
+  font-weight: bold;
+}
+
+#zrafnukslo .gt_font_italic {
+  font-style: italic;
+}
+
+#zrafnukslo .gt_super {
+  font-size: 65%;
+}
+
+#zrafnukslo .gt_footnote_marks {
+  font-style: italic;
+  font-size: 65%;
+}
+</style>
+<div id="zrafnukslo" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Matches</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1">Sims</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Wager</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Prize</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Net</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Prob</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">EV</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr>
+      <td class="gt_row gt_left">0</td>
+      <td class="gt_row gt_center">46</td>
+      <td class="gt_row gt_right">46</td>
+      <td class="gt_row gt_right">92</td>
+      <td class="gt_row gt_right">46</td>
+      <td class="gt_row gt_right">0.046</td>
+      <td class="gt_row gt_right">0.092</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">1</td>
+      <td class="gt_row gt_center">171</td>
+      <td class="gt_row gt_right">171</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">-171</td>
+      <td class="gt_row gt_right">0.171</td>
+      <td class="gt_row gt_right">0.000</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">2</td>
+      <td class="gt_row gt_center">281</td>
+      <td class="gt_row gt_right">281</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">-281</td>
+      <td class="gt_row gt_right">0.281</td>
+      <td class="gt_row gt_right">0.000</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">3</td>
+      <td class="gt_row gt_center">268</td>
+      <td class="gt_row gt_right">268</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">-268</td>
+      <td class="gt_row gt_right">0.268</td>
+      <td class="gt_row gt_right">0.000</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">4</td>
+      <td class="gt_row gt_center">161</td>
+      <td class="gt_row gt_right">161</td>
+      <td class="gt_row gt_right">161</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0.161</td>
+      <td class="gt_row gt_right">0.161</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">5</td>
+      <td class="gt_row gt_center">59</td>
+      <td class="gt_row gt_right">59</td>
+      <td class="gt_row gt_right">177</td>
+      <td class="gt_row gt_right">118</td>
+      <td class="gt_row gt_right">0.059</td>
+      <td class="gt_row gt_right">0.177</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">6</td>
+      <td class="gt_row gt_center">13</td>
+      <td class="gt_row gt_right">13</td>
+      <td class="gt_row gt_right">130</td>
+      <td class="gt_row gt_right">117</td>
+      <td class="gt_row gt_right">0.013</td>
+      <td class="gt_row gt_right">0.130</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">7</td>
+      <td class="gt_row gt_center">1</td>
+      <td class="gt_row gt_right">1</td>
+      <td class="gt_row gt_right">50</td>
+      <td class="gt_row gt_right">49</td>
+      <td class="gt_row gt_right">0.001</td>
+      <td class="gt_row gt_right">0.050</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="background-color: #008BAC; color: white;">Total</td>
+      <td class="gt_row gt_center" style="background-color: #008BAC; color: white;">1000</td>
+      <td class="gt_row gt_right" style="background-color: #008BAC; color: white;">1000</td>
+      <td class="gt_row gt_right" style="background-color: #008BAC; color: white;">610</td>
+      <td class="gt_row gt_right" style="background-color: #008BAC; color: white;">-390</td>
+      <td class="gt_row gt_right" style="background-color: #008BAC; color: white;">1.000</td>
+      <td class="gt_row gt_right" style="background-color: #008BAC; color: white;">0.610</td>
+    </tr>
+  </tbody>
+  
+  
+</table></div>
 <p>Despite the best match level’s expected value being only 17.7 (above), our expected value for each game is 0 cents. This dynamic is due to the fact that players do not need to specify a match level beforehand. Thus, they participate in the payout at any winning level and their combined EV is the sum of all EV’s.</p>
 <p><em>Note:</em> The simulated probability of getting 5 matches in the 10-Spot game is 5.2% - which is consistent with the stated odds (1/19) for five matches. This illustrates an value attribute of simulations - despite not knowing the formula that the Lottery used for their odds, we have been able to validate them as being acceptably accurate.</p>
 </div>
 <div id="net-position-after-30-games" class="section level2">
-<h2><span class="header-section-number">2.2</span> Net Position After 30 Games</h2>
+<h2><span class="header-section-number">3.4</span> Net Position After 30 Games</h2>
 <p>With an EV of 0 cents. we would expect to have $0 in our pocket after wagering $30 across 30 games. But no one plays Keno for the expected value, it is the big prizes that attracts players. So let’s play 30 games, 1,000 times, and see what our ending balances are after this defined gameset.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="keno.html#cb15-1"></a>games &lt;-<span class="st"> </span><span class="dv">30</span></span>
-<span id="cb15-2"><a href="keno.html#cb15-2"></a>sims2 &lt;-<span class="st"> </span><span class="dv">1000</span></span>
-<span id="cb15-3"><a href="keno.html#cb15-3"></a></span>
-<span id="cb15-4"><a href="keno.html#cb15-4"></a>plays2 &lt;-<span class="st"> </span><span class="kw">tibble</span>()</span>
-<span id="cb15-5"><a href="keno.html#cb15-5"></a></span>
-<span id="cb15-6"><a href="keno.html#cb15-6"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>sims2) {</span>
-<span id="cb15-7"><a href="keno.html#cb15-7"></a>  </span>
-<span id="cb15-8"><a href="keno.html#cb15-8"></a>  games_batch &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">30</span> <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># for each sim</span></span>
-<span id="cb15-9"><a href="keno.html#cb15-9"></a><span class="st">    </span><span class="kw">map_dfr</span>(<span class="cf">function</span>(x) <span class="kw">play_keno</span>(spots)) <span class="op">%&gt;%</span></span>
-<span id="cb15-10"><a href="keno.html#cb15-10"></a><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">Net =</span> <span class="kw">sum</span>(Net)) <span class="op">%&gt;%</span></span>
-<span id="cb15-11"><a href="keno.html#cb15-11"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">Sim =</span> i) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># calc cumulative sum</span></span>
-<span id="cb15-12"><a href="keno.html#cb15-12"></a><span class="st">    </span><span class="kw">relocate</span>(Sim)</span>
-<span id="cb15-13"><a href="keno.html#cb15-13"></a>    </span>
-<span id="cb15-14"><a href="keno.html#cb15-14"></a>   plays2 &lt;-<span class="st"> </span>plays2 <span class="op">%&gt;%</span></span>
-<span id="cb15-15"><a href="keno.html#cb15-15"></a><span class="st">     </span><span class="kw">bind_rows</span>(games_batch) <span class="op">%&gt;%</span></span>
-<span id="cb15-16"><a href="keno.html#cb15-16"></a><span class="st">     </span><span class="kw">mutate</span>(<span class="dt">Color =</span> <span class="kw">factor</span>(<span class="kw">case_when</span>(</span>
-<span id="cb15-17"><a href="keno.html#cb15-17"></a>       Net <span class="op">&lt;=</span><span class="st"> </span><span class="dv">0</span> <span class="op">~</span><span class="st"> &quot;-$30 - $0 Loss&quot;</span>,</span>
-<span id="cb15-18"><a href="keno.html#cb15-18"></a>       Net <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>Net <span class="op">&lt;=</span><span class="st"> </span><span class="dv">30</span> <span class="op">~</span><span class="st"> &quot;$1-$30 Gain&quot;</span>,</span>
-<span id="cb15-19"><a href="keno.html#cb15-19"></a>       Net <span class="op">&gt;</span><span class="st"> </span><span class="dv">30</span> <span class="op">&amp;</span><span class="st"> </span>Net <span class="op">&lt;=</span><span class="st"> </span><span class="dv">60</span> <span class="op">~</span><span class="st"> &quot;$31-$60 Gain&quot;</span>,</span>
-<span id="cb15-20"><a href="keno.html#cb15-20"></a>       Net <span class="op">&gt;</span><span class="st"> </span><span class="dv">60</span> <span class="op">&amp;</span><span class="st"> </span>Net <span class="op">&lt;=</span><span class="st"> </span><span class="dv">90</span> <span class="op">~</span><span class="st"> &quot;$61-$90 Gain&quot;</span>,</span>
-<span id="cb15-21"><a href="keno.html#cb15-21"></a>       <span class="ot">TRUE</span> <span class="op">~</span><span class="st"> &quot;&gt;$90 Gain&quot;</span> )))</span>
-<span id="cb15-22"><a href="keno.html#cb15-22"></a>  </span>
-<span id="cb15-23"><a href="keno.html#cb15-23"></a>}</span>
-<span id="cb15-24"><a href="keno.html#cb15-24"></a></span>
-<span id="cb15-25"><a href="keno.html#cb15-25"></a><span class="kw">ggplot</span>(plays2, <span class="kw">aes</span>(Sim, Net, <span class="dt">color =</span> Color)) <span class="op">+</span></span>
-<span id="cb15-26"><a href="keno.html#cb15-26"></a><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">alpha =</span> <span class="fl">0.3</span>) <span class="op">+</span></span>
-<span id="cb15-27"><a href="keno.html#cb15-27"></a><span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="kw">mean</span>(plays2<span class="op">$</span>Net))</span></code></pre></div>
-<p><img src="gamblr_book_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="keno.html#cb16-1"></a>summ_plays2 &lt;-<span class="st"> </span>plays2 <span class="op">%&gt;%</span></span>
-<span id="cb16-2"><a href="keno.html#cb16-2"></a><span class="st">  </span><span class="kw">group_by</span>(Color) <span class="op">%&gt;%</span></span>
-<span id="cb16-3"><a href="keno.html#cb16-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Count =</span> <span class="kw">n</span>(),</span>
-<span id="cb16-4"><a href="keno.html#cb16-4"></a>            <span class="dt">Mean =</span> <span class="kw">mean</span>(Net))</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="keno.html#cb20-1"></a>games &lt;-<span class="st"> </span><span class="dv">30</span></span>
+<span id="cb20-2"><a href="keno.html#cb20-2"></a>sims2 &lt;-<span class="st"> </span><span class="dv">1000</span></span>
+<span id="cb20-3"><a href="keno.html#cb20-3"></a></span>
+<span id="cb20-4"><a href="keno.html#cb20-4"></a>plays2 &lt;-<span class="st"> </span><span class="kw">tibble</span>()</span>
+<span id="cb20-5"><a href="keno.html#cb20-5"></a></span>
+<span id="cb20-6"><a href="keno.html#cb20-6"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>sims2) {</span>
+<span id="cb20-7"><a href="keno.html#cb20-7"></a>  </span>
+<span id="cb20-8"><a href="keno.html#cb20-8"></a>  games_batch &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">30</span> <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># for each sim</span></span>
+<span id="cb20-9"><a href="keno.html#cb20-9"></a><span class="st">    </span><span class="kw">map_dfr</span>(<span class="cf">function</span>(x) <span class="kw">play_keno</span>(spots)) <span class="op">%&gt;%</span></span>
+<span id="cb20-10"><a href="keno.html#cb20-10"></a><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">Net =</span> <span class="kw">sum</span>(Net)) <span class="op">%&gt;%</span></span>
+<span id="cb20-11"><a href="keno.html#cb20-11"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">Sim =</span> i) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># calc cumulative sum</span></span>
+<span id="cb20-12"><a href="keno.html#cb20-12"></a><span class="st">    </span><span class="kw">relocate</span>(Sim)</span>
+<span id="cb20-13"><a href="keno.html#cb20-13"></a>    </span>
+<span id="cb20-14"><a href="keno.html#cb20-14"></a>   plays2 &lt;-<span class="st"> </span>plays2 <span class="op">%&gt;%</span></span>
+<span id="cb20-15"><a href="keno.html#cb20-15"></a><span class="st">     </span><span class="kw">bind_rows</span>(games_batch) <span class="op">%&gt;%</span></span>
+<span id="cb20-16"><a href="keno.html#cb20-16"></a><span class="st">     </span><span class="kw">mutate</span>(<span class="dt">Color =</span> <span class="kw">factor</span>(<span class="kw">case_when</span>(</span>
+<span id="cb20-17"><a href="keno.html#cb20-17"></a>       Net <span class="op">&lt;=</span><span class="st"> </span><span class="dv">0</span> <span class="op">~</span><span class="st"> &quot;-$30 - $0 Loss&quot;</span>,</span>
+<span id="cb20-18"><a href="keno.html#cb20-18"></a>       Net <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>Net <span class="op">&lt;=</span><span class="st"> </span><span class="dv">30</span> <span class="op">~</span><span class="st"> &quot;$1-$30 Gain&quot;</span>,</span>
+<span id="cb20-19"><a href="keno.html#cb20-19"></a>       Net <span class="op">&gt;</span><span class="st"> </span><span class="dv">30</span> <span class="op">&amp;</span><span class="st"> </span>Net <span class="op">&lt;=</span><span class="st"> </span><span class="dv">60</span> <span class="op">~</span><span class="st"> &quot;$31-$60 Gain&quot;</span>,</span>
+<span id="cb20-20"><a href="keno.html#cb20-20"></a>       Net <span class="op">&gt;</span><span class="st"> </span><span class="dv">60</span> <span class="op">&amp;</span><span class="st"> </span>Net <span class="op">&lt;=</span><span class="st"> </span><span class="dv">90</span> <span class="op">~</span><span class="st"> &quot;$61-$90 Gain&quot;</span>,</span>
+<span id="cb20-21"><a href="keno.html#cb20-21"></a>       <span class="ot">TRUE</span> <span class="op">~</span><span class="st"> &quot;&gt;$90 Gain&quot;</span> )))</span>
+<span id="cb20-22"><a href="keno.html#cb20-22"></a>  </span>
+<span id="cb20-23"><a href="keno.html#cb20-23"></a>}</span>
+<span id="cb20-24"><a href="keno.html#cb20-24"></a></span>
+<span id="cb20-25"><a href="keno.html#cb20-25"></a><span class="kw">ggplot</span>(plays2, <span class="kw">aes</span>(Sim, Net, <span class="dt">color =</span> Color)) <span class="op">+</span></span>
+<span id="cb20-26"><a href="keno.html#cb20-26"></a><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">alpha =</span> <span class="fl">0.3</span>) <span class="op">+</span></span>
+<span id="cb20-27"><a href="keno.html#cb20-27"></a><span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="kw">mean</span>(plays2<span class="op">$</span>Net))</span></code></pre></div>
+<p><img src="gamblr_book_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="keno.html#cb21-1"></a>summ_plays2 &lt;-<span class="st"> </span>plays2 <span class="op">%&gt;%</span></span>
+<span id="cb21-2"><a href="keno.html#cb21-2"></a><span class="st">  </span><span class="kw">group_by</span>(Color) <span class="op">%&gt;%</span></span>
+<span id="cb21-3"><a href="keno.html#cb21-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Count =</span> <span class="kw">n</span>(),</span>
+<span id="cb21-4"><a href="keno.html#cb21-4"></a>            <span class="dt">Mean =</span> <span class="kw">mean</span>(Net))</span></code></pre></div>
 <pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="keno.html#cb18-1"></a><span class="kw">ggplot</span>(plays2, <span class="kw">aes</span>(Net)) <span class="op">+</span></span>
-<span id="cb18-2"><a href="keno.html#cb18-2"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">30</span>) </span></code></pre></div>
-<p><img src="gamblr_book_files/figure-html/unnamed-chunk-6-2.png" width="672" /></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="keno.html#cb23-1"></a><span class="kw">ggplot</span>(plays2, <span class="kw">aes</span>(Net)) <span class="op">+</span></span>
+<span id="cb23-2"><a href="keno.html#cb23-2"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">30</span>) </span></code></pre></div>
+<p><img src="gamblr_book_files/figure-html/unnamed-chunk-7-2.png" width="672" /></p>
+</div>
+<div id="strategy-testing" class="section level2">
+<h2><span class="header-section-number">3.5</span> Strategy Testing</h2>
+<p>Some possible strategies and their effectiveness against the baseline above (??)</p>
 </div>
 <div id="conclusion" class="section level2">
-<h2><span class="header-section-number">2.3</span> Conclusion</h2>
+<h2><span class="header-section-number">3.6</span> Conclusion</h2>
 <div id="reconciling-to-original-manual-in-a-restaurant-analysis" class="section level3">
-<h3><span class="header-section-number">2.3.1</span> Reconciling to Original (Manual in a Restaurant) Analysis</h3>
+<h3><span class="header-section-number">3.6.1</span> Reconciling to Original (Manual in a Restaurant) Analysis</h3>
 <p>I realize now that my original calculation did not appreciate the sum of the EV’s as being relevant (because players participate at all match levels in each game, rather then pre-specifying a match level). So my original EV was considerably understated.</p>
 <p>From this, we can draw some important lessons.</p>
 <ol style="list-style-type: decimal">
@@ -349,8 +1519,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="slightly-technical-backdrop.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="final-words.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="monte-carlo-simulations.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="powerball.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

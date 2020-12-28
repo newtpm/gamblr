@@ -27,9 +27,11 @@ In order to rI use the statistical programming language [R](https://www.r-projec
 
 ## Our R Envronment
 
-```{r eval=FALSE}
+```{r}
 library(tidyverse)
 library(readxl)
+library(gt)
+library(janitor)
 
 sims = 1e3
 ```
